@@ -1,0 +1,64 @@
+{
+    "fields": [
+        {
+            "name": "cidade_",
+            "type": "string"
+        },
+        {
+            "name": "dataExpedicao_",
+            "type": "date"
+        },
+        {
+            "name": "destinatario_",
+            "type": "string"
+        },
+        {
+            "name": "dtRetornoFisico_",
+            "type": "date"
+        },
+        {
+            "name": "dtRetornoVale_",
+            "type": "date"
+        },
+        {
+            "name": "gip_",
+            "type": "number"
+        },
+        {
+            "name": "motorista_",
+            "type": "string"
+        },
+        {
+            "name": "nmrValePallet_",
+            "type": "number"
+        },
+        {
+            "name": "notafiscal_",
+            "type": "number"
+        },
+        {
+            "name": "obs_",
+            "type": "string"
+        },
+        {
+            "name": "qtdDevolucaoFisico_",
+            "type": "number"
+        },
+        {
+            "name": "qtdDevolucaoVale_",
+            "type": "number"
+        },
+        {
+            "name": "qtdPallets_",
+            "type": "number"
+        },
+        {
+            "name": "transportadoraAg_",
+            "type": "string"
+        },
+        {
+            "name": "uf_",
+            "type": "string"
+        }
+    ]
+}

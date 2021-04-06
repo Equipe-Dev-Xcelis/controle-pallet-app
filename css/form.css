@@ -1,0 +1,49 @@
+.btnLogout{
+    margin-left: 1000px;
+}
+
+.textoInc{
+    text-align: center;
+}
+
+.btnSignin{
+    margin-left: 650px;
+}
+
+.btnConta{
+    margin-left: 710px;
+}
+
+
+.tabela{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+thead {
+    color: white;
+    font-size: 16px;
+    background-color: black;
+}
+
+.delete {
+    padding: 5px 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: red;
+    border: 0;
+    border-radius: 6px;
+  }
+
+
+.edit {
+    display: inline-block;
+    padding: 5px 10px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    background-color: lightskyblue;
+    border-radius: 6px;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
+    <title>Controle de Pallets | Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-md bg-ligth navbar-black">
+            <a class="nav-link text-right" href="http://arpyia.com">
+                <img class="logo" alt="logo" src="img/arpyia.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+
+        <nav class="navbar navbar-expand-md bg-ligth navbar-black">
+            <p class="btnConta">Não tem uma conta? Cadastre-se clicando <a href="criarConta.html">aqui</a></p>
+          </nav>
+
+        <div class="jumbotron" style="padding-top:3%; padding-bottom:3%;">
+            <div class="container text-center">
+                <h2>Controle de Pallets | Login</h2>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="logreg-forms">
+                <form class="user">
+                    <h1 class="h3 mb-3 font-weight-bold" style="text-align: center">Login</h1>
+
+                    <div class="form-group">
+                        <input type="email" class="form-control form-control-user" id="inputEmail"
+                            aria-describedby="emailHelp" placeholder="Digite o seu e-mail">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-user" id="inputPassword"
+                            placeholder="Senha">
+                    </div>
+                </form>
+
+                <button class="btn btn-primary btn-user btn-block" id="btnLogin">Entrar</button>
+                
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+    <script src="//www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-storage.js"></script>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/authentication.js"></script>
+
+</body>
+
+</html>
