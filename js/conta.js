@@ -1,32 +1,82 @@
-const btnConta = document.querySelector("#btnConta");
+let nome;
+let email;
+let senha;
 
-btnConta.addEventListener("click", () => {
-  const formData = {
-    nome: document.querySelector("#registrarNome").value,
-    email: document.querySelector("#registrarEmail").value,
-    senha: document.querySelector("#registrarPassword").value
-  };
-  
-  firebase.auth().createUserWithEmailAndPassword(formData.email, formData.senha).then(data => {
-    const uid = data.user.uid;
+function validarNome() {
+  nome = $('#nome').val();
 
-    const database = firebase.firestore();
-    const collection = database.collection('users');
+  const isNomeInvalid = !nome;
+  if (isNomeInvalid) {
+    $('#nome').css({ boxShadow: '0 0 5px red' });
 
-    collection.doc(uid).set({
-      email: formData.email,
-      nome: formData.nome
-    });
+    return false;
+  }
 
-    alert("Usuario criado com sucesso!");
+  $('#nome').css({ boxShadow: 'none' });
+
+  return true;
+}
+
+function validarEmail() {
+  email = $('#email').val();
+
+  const isEmailInvalid = !email;
+  if (isEmailInvalid) {
+    $('#email').css({ boxShadow: '0 0 5px red' });
+
+    return false;
+  }
+
+  $('#email').css({ boxShadow: 'none' });
+
+  return true;
+}
+
+function validarSenha() {
+  senha = $('#senha').val();
+
+  const isSenhaInvalid = !senha;
+
+  if (isSenhaInvalid) {
+    $('#senha').css({ boxShadow: '0 0 5px red' });
+
+    return false;
+  }
+
+  $('#senha').css({ boxShadow: 'none' });
+
+  return true;
+}
+
+
+
+$('#criar-conta').on('submit', function (e) {
+  e.preventDefault();
+
+  const nomeValido = validarNome();
+  const emailValido = validarEmail();
+  const senhaValida = validarSenha();
+
+
+  if (nomeValido && emailValido && senhaValida ) {
+
+    const apiCreateAccount = 'http://localhost:5000/api/v1/cadastrar';
+
+    const userData = {
+      nome,
+      senha,
+      email
+    };
     
-  }).catch(error => {
-    if(error.code == 'auth/email-already-in-use'){
-        alert("Esse e-mail ja esta sendo usado por outro usuario!");
-    }else{
-      alert(error.message);
-    }
-    console.log(error);
-  });
-  
+    axios.post(apiCreateAccount, userData)
+      .then(function (response) {
+        console.log(response);
+        alert(response.data.message);
+
+      })
+      .catch(function (error) {
+        alert(error.data.message);
+        
+      });
+  }
 });
