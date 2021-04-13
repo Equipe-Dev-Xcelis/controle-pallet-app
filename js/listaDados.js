@@ -16,7 +16,7 @@ function validarGip() {
 }
 
 function fetchList() {
-  const apiFindAllUrl = 'https://pallets-api.herokuapp.com/api/v1/gip';
+  const apiFindAllUrl = `${BASE_URL}/gip`;
 
   axios.get(apiFindAllUrl)
     .then(function (response) {
@@ -57,15 +57,19 @@ function buildList(list) {
 
   $('.delete').on('click', function (e) {
     e.preventDefault();
-  
+
     const gip = $(e.currentTarget).data('gip');
-    
+
     const isRemovalConfirmed = confirm(`Tem certeza que deseja remover o gip "${gip}"`);
-  
+
     if (isRemovalConfirmed) {
-      const apiDeleteUrl = `https://pallets-api.herokuapp.com/api/v1/gip/${gip}`;
-  
-      axios.delete(apiDeleteUrl)
+      const apiDeleteUrl = `${BASE_URL}/gip/${gip}`;
+
+      const token = localStorage.getItem('token');
+
+      const header = `Authorization: Bearer ${token}`;
+
+      axios.delete(apiDeleteUrl, { headers: { header } })
         .then(function (response) {
           fetchList();
         })
@@ -84,7 +88,7 @@ $('#gip-search').on('submit', function (e) {
 
 
   if (gipValida) {
-    const apiFindByGipUrl = `https://pallets-api.herokuapp.com/api/v1/gip/${gip}`;
+    const apiFindByGipUrl = `${BASE_URL}/gip/${gip}`;
 
     axios.get(apiFindByGipUrl)
       .then(function (response) {

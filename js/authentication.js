@@ -74,19 +74,34 @@ $('#login-form').on('submit', function (e) {
 
   if (emailValido && senhaValida) {
 
-    const apiUserLogin = 'http://localhost:5000/api/v1/entrar';
+    const apiUserLogin = `${BASE_URL}/entrar`;
+
+    const userData = {
+      senha,
+      email
+    };
 
 
-    
-    axios.post(apiUserLogin)
+
+    axios.post(apiUserLogin, userData)
       .then(function (response) {
         console.log(response);
-        alert(response.data.message);
+        localStorage.setItem('token', response.data.token);
+        window.location.replace('menu.html');
+        // alert(response.);
 
       })
       .catch(function (error) {
-        alert(error.data.message);
+        // alert(error.data.message);
         
       });
   }
 });
+
+
+
+
+    // const token = localStorage.setItem('token');
+
+    // const header = `Authorization: Bearer ${token}`;
+    // { headers: { header } }
