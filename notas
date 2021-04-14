@@ -1,172 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
-    <title>Controle de Pallets | Formulario AGV</title>
-</head>
-
-<body>
-    <div class="container">
-        <nav class="navbar navbar-expand-md bg-ligth navbar-black">
-            <a class="nav-link text-right" href="menu.html">
-                <img class="logo" alt="logo" src="img/arpyia.png">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-        </nav>
-
-        <nav class="navbar navbar-expand-md bg-ligth navbar-black">
-            <form class="form-inline">
-                <button class="btnLogout btn btn-outline-secondary my-2 my-sm-0" onclick="signOut()">Logout</button>
-            </form>
-        </nav>
-
-        <div class="jumbotron" style="padding-top:3%; padding-bottom:3%;">
-            <div class="container text-center">
-                <h2>Controle de Pallets | Formulario AGV</h2>
-            </div>
-        </div>
-
-
-        <h3><b>Orientações</h3></b>
-        <hr>
-
-        <ul class="lista">
-            <li>Neste formulario você deve preencher os campos do formulário abaixo com as devidas informações
-                solicitadas;</li>
-            <li><b>Obs</b>: Todos os campos que possuem o seguinte símbolo <b>"*"</b> devem ser preenchidos!</li>
-            <li>Após todos os campos serem preenchidos, basta clicar em enviar!</li>
-            <li>Ao fazer a inclusão do GIP, por favor, recarregue a página.</li>
-        </ul>
-
-
-        <hr>
-
-        <h5>Formulário de Controle de Pallets</h5>
-
-        <form id="pallet-form">
-
-            <div class="form-row">
-                <div class="col-md-4 mb-3">
-                    <label for="gip">Digite o GIP *</label>
-                    <input type="number" class="form-control" id="gip" name="gip" placeholder="GIP">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="dataExpedicao">Data de Expedição *</label>
-                    <input type="date" class="form-control" id="dataExpedicao" name="dataExpedicao"
-                        placeholder="Data Expedição">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="notafiscal">Digite o número da Nota Fiscal *</label>
-                    <div class="input-group">
-                        <input type="number" class="form-control" id="notafiscal" name="notafiscal"
-                            placeholder="Nota Fiscal" aria-describedby="inputGroupPrepend">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="col-md-4 mb-3">
-                    <label for="destinatario">Destinatário *</label>
-                    <select class="form-control" name="destinatario" id="destinatario">
-                        <option> ------ Selecione o Destinatário ------ </option>
-                        <option value="am/pm comestiveis ltda">AM/PM COMESTIVEIS LTDA</option>
-                        <option value="amazon servicos de varejo do brasil">AMAZON SERVICOS DE VAREJO BRASIL</option>
-                        <option value="arcom s/a.">ARCOM S/A.</option>
-                        <option value="atacadao s.a.">ATACADAO S.A.</option>
-                        <option value="baia norte prods restaurantes ltda">BAIA NORTE PRODS RESTAURANTES LTDA</option>
-                        <option value="bigolin distrib de alimentos ltda">BIGOLIN DISTRIB DE ALIMENTOS LTDA</option>
-                        <option value="bompreco bahia s/a">BOMPRECO BAHIA S/A</option>
-                        <option value="bompreco s/a superm. do nordeste">BOMPRECO S/A SUPERM. DO NORDESTE</option>
-                        <option value="bortman & cia ltda">BORTMAN & CIA LTDA</option>
-                        <option value="cabral e sousa ltda.">CABRAL E SOUSA LTDA.</option>
-                        <option value="carrefour com. e ind. ltda">CARREFOUR COM. E IND. LTDA</option>
-                        <option value="cdlgru comercio e distribuicao de">CDLGRU COMERCIO E DISTRIBUICAO DE</option>
-                        <option value="cencosud brasil comercial ltda">CENCOSUD BRASIL COMERCIAL LTDA</option>
-                        <option value="cia brasileira de distribuicao">CIA BRASILEIRA DE DISTRIBUICAO</option>
-                        <option value="cia zaffari comercio e industria">CIA ZAFFARI COMERCIO E INDUSTRIA</option>
-                        <option value="comercial zaragoza imp e exp ltda">COMERCIAL ZARAGOZA IMP E EXP LTDA</option>
-                        <option value="coop - cooperativa de consumo">COOP - COOPERATIVA DE CONSUMO</option>
-                        <option value="copiza com de prods alim ltda">COPIZA COM DE PRODS ALIM LTDA</option>
-                        <option value="dia brasil sociedade limitada">DIA BRASIL SOCIEDADE LIMITADA</option>
-                        <option value="dica distribuidora e importadora de">DICA DISTRIBUIDORA E IMPORTADORA DE</option>
-                        <option value="dimed s/a - distr de medicamentos">DIMED S/A - DISTR DE MEDICAMENTOS</option>
-                        <option value="discra distr. comercial e repr. lt">DISCRA DISTR. COMERCIAL E REPR. LT</option>
-                        <option value="dislab go comercial farmaceutica">DISLAB GO COMERCIAL FARMACEUTICA</option>
-                        <option value="dist centro oeste de med ltda">DIST CENTRO OESTE DE MED LTDA</option>
-                        <option value="distrib de prod alim. marsil ltda">DISTRIB DE PROD ALIM. MARSIL LTDA</option>
-                        <option value="distribuidora de alimentos ponto">DISTRIBUIDORA DE ALIMENTOS PONTO</option>
-                        <option value="distribuidora de doce top tem ltd">DISTRIBUIDORA DE DOCE TOP TEM LTD</option>
-                        <option value="drogaria sao paulo s.a">DROGARIA SAO PAULO S.A</option>
-                        <option value="drogaria tododia eireli">DROGARIA TODODIA EIRELI</option>
-                        <option value="drogarias pacheco s/a">DROGARIAS PACHECO S/A</option>
-                        <option value="dufry do brasil duty free shop ltda">DUFRY DO BRASIL DUTY FREE SHOP LTDA</option>
-                        <option value="garcia atacadista ltda">GARCIA ATACADISTA LTDA</option>
-                        <option value="higa produtos alimenticios ltda.">HIGA PRODUTOS ALIMENTICIOS LTDA.</option>
-                        <option value="irmaos russi ltda">IRMAOS RUSSI LTDA</option>
-                        <option value="jaya trade center ltda epp">JAYA TRADE CENTER LTDA EPP</option>
-                        <option value="jc dist.log.exp.prod.industrial lt">JC DIST.LOG.EXP.PROD.INDUSTRIAL LT</option>
-                        <option value="kalunga com e ind grafica ltda">KALUNGA COM E IND GRAFICA LTDA</option>
-                        <option value="lojas americanas s/a">LOJAS AMERICANAS S/A</option>
-                        <option value="luiz tonin atac e superm. s.a">LUIZ TONIN ATAC E SUPERM. S.A</option>
-                        <option value="maceio distr.e import. de alim. lt">MACEIO DISTR.E IMPORT. DE ALIM. LT</option>
-                        <option value="magazine luiza s/a">MAGAZINE LUIZA S/A</option>
-                        <option value="makro atacadista s/a">MAKRO ATACADISTA S/A</option>
-                        <option value="martins & lopes ltda">MARTINS & LOPES LTDA</option>
-                        <option value="mega rio logistica distr de alim lt">MEGA RIO LOGISTICA DISTR DE ALIM LT</option>
-                        <option value="mendes e parente ltda">MENDES E PARENTE LTDA</option>
-                        <option value="multicanal atacado ltda">MULTICANAL ATACADO LTDA</option>
-                        <option value="nova amazonas ind.com.imp. alim.lt">NOVA AMAZONAS IND.COM.IMP. ALIM.LT</option>
-                        <option value="ouro azul distrib e import de">OURO AZUL DISTRIB E IMPORT DE</option>
-                        <option value="p & p distribuidora ltda">P & P DISTRIBUIDORA LTDA</option>
-                        <option value="pennacchi e cia. ltda.">PENNACCHI E CIA. LTDA.</option>
-                        <option value="peralta distrubuidora de alim. ltda">PERALTA DISTRUBUIDORA DE ALIM. LTDA</option>
-                        <option value="pet center comercio e particip s.a">PET CENTER COMERCIO E PARTICIP S.A</option>
-                        <option value="postall transporte e armaz ltda">POSTALL TRANSPORTE E ARMAZ LTDA</option>
-                        <option value="raia drogasil s/a">RAIA DROGASIL S/A</option>
-                        <option value="rede brasil distrib. e log. ltda">REDE BRASIL DISTRIB. E LOG. LTDA</option>
-                        <option value="rfg comercio transportes e servicos ltda ">RFG COMERCIO TRANSPORTES E SERVICOS
-                            LTDA </option>
-                        <option value="rio atacadao alimentos ltda">RIO ATACADAO ALIMENTOS LTDA</option>
-                        <option value="roldao auto serv com de alim ltda">ROLDAO AUTO SERV COM DE ALIM LTDA</option>
-                        <option value="savegnago-supermercados ltda">SAVEGNAGO-SUPERMERCADOS LTDA</option>
-                        <option value="sendas distribuidora s/a">SENDAS DISTRIBUIDORA S/A</option>
-                        <option value="servbem com e distr de alim. ltda">SERVBEM COM E DISTR DE ALIM. LTDA</option>
-                        <option value="sinais atacado e distribuidora ltda">SINAIS ATACADO E DISTRIBUIDORA LTDA</option>
-                        <option value="souza cruz ltda">SOUZA CRUZ LTDA</option>
-                        <option value="souza cruz s.a">SOUZA CRUZ S.A</option>
-                        <option value="tenda atacado ltda">TENDA ATACADO LTDA</option>
-                        <option value="tonga comercio de alimentos ltda">TONGA COMERCIO DE ALIMENTOS LTDA</option>
-                        <option value="travagin & travagin ltda">TRAVAGIN & TRAVAGIN LTDA</option>
-                        <option value="unimarka distribuidora s/a">UNIMARKA DISTRIBUIDORA S/A</option>
-                        <option value="wal-mart brasil ltda">WAL-MART BRASIL LTDA</option>
-                        <option value="wmb supermercados do brasil ltda">WMB SUPERMERCADOS DO BRASIL LTDA</option>
-                        <option value="wms supermercados do brasil ltda">WMS SUPERMERCADOS DO BRASIL LTDA</option>
-                        <option value="zamboni comercial ltda">ZAMBONI COMERCIAL LTDA</option>
-                    </select>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="endereco">Endereço *</label>
+ colunas banco ={
+     Numero GIP,
+     Data Expedicao,
+     Nota Fiscal de Venda,
+     Destinatário,
+     Cidade,
+     UF,
+     Transportadora,
+     Motorista,
+     Quantiade de Pallets Expedidos,
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <label for="endereco">Endereço *</label>
                     <select class="form-control" name="endereco" id="endereco">
                         <option> ------ Selecione o Endereço ------ </option>
                         <option value="103 norte avenida lo 2 72">103 NORTE AVENIDA LO 2 72</option>
@@ -665,30 +515,3 @@
 
                     </select>
                 </div>
-
-            </div>
-            <button class="btn btn-outline-secondary">Enviar GIP</button>
-            <INPUT class="btn btn-outline-secondary" type="reset" name="b2" value="Limpar">
-
-
-        </form>
-        <!-- <script src="js/validacaoFormulario.js"></script> -->
-
-    </div>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
-
-    <script src="js/app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-    <script src="js/createGip.db.js"></script>
-
-</body>
-
-</html>

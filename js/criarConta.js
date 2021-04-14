@@ -60,7 +60,7 @@ $('#criar-conta').on('submit', function (e) {
 
   if (nomeValido && emailValido && senhaValida ) {
 
-    const apiCreateAccount = 'http://localhost:5000/api/v1/cadastrar';
+    const apiCreateAccount = `${BASE_URL}/cadastrar`;
 
     const userData = {
       nome,
@@ -70,7 +70,6 @@ $('#criar-conta').on('submit', function (e) {
     
     axios.post(apiCreateAccount, userData)
       .then(function (response) {
-        console.log(response);
         alert(response.data.message);
 
       })

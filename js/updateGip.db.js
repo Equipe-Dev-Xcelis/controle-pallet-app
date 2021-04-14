@@ -1,5 +1,5 @@
 let gip;
-let qtdPallets;
+let qtdPalletsEx;
 let transportadoraAg;
 let motorista;
 let cidade;
@@ -13,7 +13,7 @@ let obs;
 
 function fetchData() {
     gip = window.location.href.split('=')[1];
-    const apiFindByIdUrl = `https://pallets-api.herokuapp.com/api/v1/gip/${gip}`;
+    const apiFindByIdUrl = `${BASE_URL}/gip/${gip}`;
 
     axios.get(apiFindByIdUrl)
         .then(function (response) {
@@ -26,7 +26,7 @@ function fetchData() {
 
 function fillFields(data) {
     console.log(data);
-    $('#qtdPallets').val(data['qtdPallets'] || '');
+    $('#qtdPalletsEx').val(data['qtdPalletsEx'] || '');
     $('#transportadoraAg').val(data['transportadoraAg'] || '');
     $('#motorista').val(data['motorista'] || '');
     $('#cidade').val(data['cidade'] || '');
@@ -39,17 +39,17 @@ function fillFields(data) {
     $('#obs').val(data['obs']);
 }
 
-function validarQtdPallets() {
-    qtdPallets = $('#qtdPallets').val();
+function validarQtdPalletsEx() {
+    qtdPalletsEx = $('#qtdPalletsEx').val();
 
-    const isQtdPalletsInvalid = !qtdPallets;
-    if (isQtdPalletsInvalid) {
-        $('#qtdPallets').css({ boxShadow: '0 0 5px red' });
+    const isqtdPalletsExInvalid = !qtdPalletsEx;
+    if (isqtdPalletsExInvalid) {
+        $('#qtdPalletsEx').css({ boxShadow: '0 0 5px red' });
 
         return false;
     }
 
-    $('#qtdPallets').css({ boxShadow: 'none' });
+    $('#qtdPalletsEx').css({ boxShadow: 'none' });
 
     return true;
 }
@@ -199,7 +199,7 @@ function validarObs() {
 $('#gip-edit').on('submit', function (e) {
     e.preventDefault();
     
-    const qtdPalletsValido = validarQtdPallets();
+    const qtdPalletsExValido = validarQtdPalletsEx();
     const transportadoraAgValida = validarTransportadoraAg();
     const motoristaValido = validarMotorista();
     const cidadeValida = validarCidade();
@@ -211,12 +211,12 @@ $('#gip-edit').on('submit', function (e) {
     const nmrValePalletValido = validarNmrPallet();
     const obsValida = validarObs();
     
-    if (qtdPalletsValido && transportadoraAgValida && motoristaValido && cidadeValida && ufValida && dtRetornoValeValida && qtdDevolucaoValeValido && dtRetornoFisico && qtdDevolucaoFisicoValido && nmrValePalletValido && obsValida) {
+    if (qtdPalletsExValido && transportadoraAgValida && motoristaValido && cidadeValida && ufValida && dtRetornoValeValida && qtdDevolucaoValeValido && dtRetornoFisico && qtdDevolucaoFisicoValido && nmrValePalletValido && obsValida) {
 
-        const apiUpdateUrl = `https://pallets-api.herokuapp.com/api/v1/gip/${gip}`;
+        const apiUpdateUrl = `${BASE_URL}/gip/${gip}`;
 
         const gpiData = {
-            qtdPallets,
+            qtdPalletsEx,
             transportadoraAg,
             motorista,
             cidade,

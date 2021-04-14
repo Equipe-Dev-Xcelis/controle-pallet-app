@@ -14,7 +14,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-// firebase.firestore();
-// firebase.database();
+firebase.analytics();
+firebase.firestore();
+firebase.database();
 firebase.storage();
