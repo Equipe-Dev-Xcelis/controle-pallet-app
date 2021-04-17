@@ -39,7 +39,7 @@
 
         <div class="jumbotron" style="padding-top:3%; padding-bottom:3%;">
             <div class="container text-center">
-                <h2>Controle de Pallets | Atualização Valle Pallet</h2>
+                <h2>Controle de Pallets | Atualização de dados</h2>
             </div>
         </div>
 
@@ -50,17 +50,17 @@
             <li>Nesta página você pode selecionar o GIP que deseja fazer alterações;</li>
             <li>Basta escolher e clicar em "Editar" no final da tabela</li>
         </ul>
-
         <hr>
 
-        <form >
+        <h5>Formulário de Controle de Pallets</h5>
+        <form id="gip-search">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="gip">Digite o GIP</label>
                     <input type="number" class="form-control" id="gip" name="gip" placeholder="GIP">
                 </div>
             </div>
-            <button id="gip-search" class="btn btn-outline-secondary">Buscar GIP</button>
+            <button class="btn btn-outline-secondary">Buscar GIP</button>
             <input type='reset' class="btn btn-outline-secondary" value='Limpar campo' />
             <hr>
         </form>
@@ -69,54 +69,15 @@
             <thead>
                 <tr>
                     <td>GIP</td>
-                    <td>Quantidade de Pallets Expedidos</td>
+                    <td>Data Expedicao</td>
                     <td>Destinatário</td>
+                    <td>Nota Fiscal</td>
+                    <td colspan="2"></td>
                 </tr>
             </thead>
             <tbody>
             </tbody>
         </table>
-
-        <hr>
-
-        <h5>Preencha os campos para atualizar o Vale Pallet</h5>
-        <form id="atualizar_vale_pallet" class="container">
-            <section class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="numero_vale_pallet">Numero do Vale Pallet</label>
-                    <input type="number" class="form-control" id="numero_vale_pallet" name="numero_vale_pallet"
-                        placeholder="Digite o numero do Vale">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="quantidade_de_pallets_vale">Quantidade de Pallets no Vale</label>
-                    <input type="number" class="form-control" id="quantidade_de_pallets_vale"
-                        name="quantidade_de_pallets_vale" placeholder="Digite a quantidade de Pallets">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="data_retorno_vale_pallet">Data de Retorno do Vale Pallet</label>
-                    <div class="input-group">
-                        <input type="date" class="form-control" id="data_retorno_vale_pallet"
-                            name="data_retorno_vale_pallet" placeholder="Coloque a data de retorno"
-                            aria-describedby="inputGroupPrepend">
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="data_retorno_vale_pallet">Data de Retorno do Vale Pallet</label>
-                    <div class="input-group">
-                        <input type="date" class="form-control" id="data_retorno_vale_pallet"
-                            name="data_retorno_vale_pallet" placeholder="Coloque a data de retorno"
-                            aria-describedby="inputGroupPrepend">
-                    </div>
-                </div>
-            </section>
-            <button class="btn btn-outline-secondary">Enviar alterações</button>
-            <input type='reset' class="btn btn-outline-secondary" value='Limpar campos' />
-        </form>
-
-
     </div>
 
 
@@ -129,7 +90,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
     <script src="js/app.js"></script>
-    <script src="js/listaDados2.js"></script>
+    <script src="js/listaDados.js"></script>
     <script src="js/authentication.js"></script>
 
 </body>

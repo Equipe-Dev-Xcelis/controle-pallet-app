@@ -47,3 +47,11 @@ thead {
     background-color: lightskyblue;
     border-radius: 6px;
 }
+
+.campo_pesquisa{
+    height: 120px;
+}
+
+.campo_datas{
+    height: 280px;
+}

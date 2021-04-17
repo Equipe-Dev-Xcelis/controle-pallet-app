@@ -16,7 +16,7 @@ function validarGip() {
 }
 
 function fetchList() {
-  const apiFindAllUrl = `${BASE_URL}/gip`;
+  const apiFindAllUrl = `http://localhost:3200/api/gips`;
 
   axios.get(apiFindAllUrl)
     .then(function (response) {
@@ -32,18 +32,16 @@ function buildList(list) {
 
   for (let i = 0; i < list.length; i++) {
     const gip = list[i]['gip'];
-    const dataExpedicao = list[i]['dataExpedicao'];
+    const data_expedicao = list[i]['data_expedicao'];
     const destinatario = list[i]['destinatario'];
-    const notafiscal = list[i]['notafiscal'];
-    const endereco = list[i]['endereco'];
+    const nota_fiscal = list[i]['nota_fiscal'];
 
     $('tbody').append(`
         <tr>
           <td>${gip}</td>
-          <td>${dataExpedicao}</td>
+          <td>${data_expedicao}</td>
           <td>${destinatario}</td>
-          <td>${notafiscal}</td>
-          <td>${endereco}</td>
+          <td>${nota_fiscal}</td>
           <td>
             <a class="edit" href="editarDados.html?id=${gip}">Editar</a>
           </td>
@@ -88,7 +86,7 @@ $('#gip-search').on('submit', function (e) {
 
 
   if (gipValida) {
-    const apiFindByGipUrl = `${BASE_URL}/gip/${gip}`;
+    const apiFindByGipUrl = `http://localhost:3200/api/gips/${gip}`;
 
     axios.get(apiFindByGipUrl)
       .then(function (response) {
