@@ -50,7 +50,7 @@ function validarSenha() {
 
 
 
-$('#criar-conta').on('submit', function (e) {
+$('#create_account_form').on('submit', function (e) {
   e.preventDefault();
 
   const nomeValido = validarNome();
@@ -58,24 +58,24 @@ $('#criar-conta').on('submit', function (e) {
   const senhaValida = validarSenha();
 
 
-  if (nomeValido && emailValido && senhaValida ) {
+  if (nomeValido && emailValido && senhaValida) {
 
-    const apiCreateAccount = `${BASE_URL}/cadastrar`;
+    const apiCreateAccount = `http://localhost:3200/api/cadastrar`;
 
     const userData = {
       nome,
       senha,
       email
     };
-    
+
     axios.post(apiCreateAccount, userData)
       .then(function (response) {
+        localStorage.setItem('token', response.data.token)
         alert(response.data.message);
-
+        window.location.replace('menu.html')
       })
       .catch(function (error) {
-        alert(error.data.message);
-        
+        window.location.replace('404.html')
       });
   }
 });

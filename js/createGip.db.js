@@ -1,187 +1,188 @@
-let gip
-let dataExpedicao
-let notafiscal
-let destinatario
-let cidade
-let uf
-let transportadoraAg
-let motorista
-let qtdPalletsEx
+var gip = $('#gip').val()
+let data_expedicao = $('#data_expedicao').val()
+let nota_fiscal = $('#nota_fiscal').val()
+let destinatario = $('#destinatario')
+let cidade = $('#cidade').val()
+let uf = $('#uf').val
+let transportadora = $('#transportadora').val()
+let motorista = $('#motorista').val()
+let quantidade_pallets_expedidos = $('#quantidade_pallets_expedidos').val()
+let obs = $('#obs').val()
 
 
-function validarGip() {
-  gip = parseInt($('#gip').val());
+// function validarGip() {
+//   gip = parseInt($('#gip').val());
 
-  const isGipInvalid = !gip;
-  if (isGipInvalid) {
-    $('#gip').css({ boxShadow: '0 0 5px red' });
+//   const isGipInvalid = !gip;
+//   if (isGipInvalid) {
+//     $('#gip').css({ boxShadow: '0 0 5px red' });
 
-    return false;
-  }
+//     return false;
+//   }
 
-  $('#gip').css({ boxShadow: 'none' });
+//   $('#gip').css({ boxShadow: 'none' });
 
-  return true;
-}
+//   return true;
+// }
 
-function validarDataExpedicao() {
-  dataExpedicao = $('#dataExpedicao').val();
-  return true;
-}
+// function validardata_expedicao() {
+//   data_expedicao = $('#data_expedicao').val();
+//   return true;
+// }
 
-function validarNotaFiscal() {
-  notafiscal = parseInt($('#notafiscal').val());
+// function validarnota_fiscal() {
+//   nota_fiscal = parseInt($('#nota_fiscal').val());
 
-  const isNotaFiscalInvalid = !notafiscal;
-  if (isNotaFiscalInvalid) {
-    $('#notafiscal').css({ boxShadow: '0 0 5px red' });
+//   const isnota_fiscalInvalid = !nota_fiscal;
+//   if (isnota_fiscalInvalid) {
+//     $('#nota_fiscal').css({ boxShadow: '0 0 5px red' });
 
-    return false;
-  }
+//     return false;
+//   }
 
-  $('#notafiscal').css({ boxShadow: 'none' });
+//   $('#nota_fiscal').css({ boxShadow: 'none' });
 
-  return true;
-}
+//   return true;
+// }
 
 
-function validarDestinatatrio() {
-  destinatario = $('#destinatario').val();
+// function validarDestinatatrio() {
+//   destinatario = $('#destinatario').val();
 
-  const isDestinatarioBlank = !destinatario.length;
-  if (isDestinatarioBlank) {
-    $('#destinatario').css({ boxShadow: '0 0 5px red' });
+//   const isDestinatarioBlank = !destinatario.length;
+//   if (isDestinatarioBlank) {
+//     $('#destinatario').css({ boxShadow: '0 0 5px red' });
 
-    return false;
-  }
+//     return false;
+//   }
 
-  $('#destinatario').css({ boxShadow: 'none' });
+//   $('#destinatario').css({ boxShadow: 'none' });
 
-  return true;
-}
+//   return true;
+// }
 
-function validarQtdPalletsEx() {
-  qtdPalletsEx = $('#qtdPalletsEx').val();
+// function validarquantidade_pallets_expedidos() {
+//   quantidade_pallets_expedidos = $('#quantidade_pallets_expedidos').val();
 
-  const isqtdPalletsExInvalid = !qtdPalletsEx;
-  if (isqtdPalletsExInvalid) {
-    $('#qtdPalletsEx').css({ boxShadow: '0 0 5px red' });
+//   const isquantidade_pallets_expedidosInvalid = !quantidade_pallets_expedidos;
+//   if (isquantidade_pallets_expedidosInvalid) {
+//     $('#quantidade_pallets_expedidos').css({ boxShadow: '0 0 5px red' });
 
-    return false;
-  }
+//     return false;
+//   }
 
-  $('#qtdPalletsEx').css({ boxShadow: 'none' });
+//   $('#quantidade_pallets_expedidos').css({ boxShadow: 'none' });
 
-  return true;
-}
+//   return true;
+// }
 
-function validarTransportadoraAg() {
-  transportadoraAg = $('#transportadoraAg').val();
+// function validartransportadora() {
+//   transportadora = $('#transportadora').val();
 
-  const isTransportadoraAgBlank = !transportadoraAg.length;
-  if (isTransportadoraAgBlank) {
-    $('#transportadoraAg').css({ boxShadow: '0 0 5px red' });
+//   const istransportadoraBlank = !transportadora.length;
+//   if (istransportadoraBlank) {
+//     $('#transportadora').css({ boxShadow: '0 0 5px red' });
 
-    return false;
-  }
+//     return false;
+//   }
 
-  $('#uf').css({ boxShadow: 'none' });
+//   $('#uf').css({ boxShadow: 'none' });
 
-  return true;
-}
+//   return true;
+// }
 
-function validarMotorista() {
-  motorista = $('#motorista').val();
+// function validarMotorista() {
+//   motorista = $('#motorista').val();
 
-  const isMotoristaLengthInvalid = !motorista.length || motorista.length < 1;
-  if (isMotoristaLengthInvalid) {
-    $('#motorista').css({ boxShadow: '0 0 5px red' });
+//   const isMotoristaLengthInvalid = !motorista.length || motorista.length < 1;
+//   if (isMotoristaLengthInvalid) {
+//     $('#motorista').css({ boxShadow: '0 0 5px red' });
 
-    return false;
-  }
+//     return false;
+//   }
 
-  const hasMotoristaInvalidChar = !(/^[a-zA-Z\u00C0-\u00FF ]+$/g.test(motorista));
-  if (hasMotoristaInvalidChar) {
-    $('#motorista').css({ boxShadow: '0 0 5px red' });
+//   const hasMotoristaInvalidChar = !(/^[a-zA-Z\u00C0-\u00FF ]+$/g.test(motorista));
+//   if (hasMotoristaInvalidChar) {
+//     $('#motorista').css({ boxShadow: '0 0 5px red' });
 
-    return false;
-  }
+//     return false;
+//   }
 
-  $('#motorista').css({ boxShadow: 'none' });
+//   $('#motorista').css({ boxShadow: 'none' });
 
-  return true;
-}
+//   return true;
+// }
 
-function validarCidade() {
-  cidade = $('#cidade').val();
+// function validarCidade() {
+//   cidade = $('#cidade').val();
 
-  const isCidadeBlank = !cidade.length;
-  if (isCidadeBlank) {
-    $('#cidade').css({ boxShadow: '0 0 5px red' });
+//   const isCidadeBlank = !cidade.length;
+//   if (isCidadeBlank) {
+//     $('#cidade').css({ boxShadow: '0 0 5px red' });
 
-    return false;
-  }
+//     return false;
+//   }
 
-  $('#cidade').css({ boxShadow: 'none' });
+//   $('#cidade').css({ boxShadow: 'none' });
 
-  return true;
-}
+//   return true;
+// }
 
-function validarUf() {
-  uf = $('#uf').val();
+// function validarUf() {
+//   uf = $('#uf').val();
 
-  const isUfBlank = !uf.length;
-  if (isUfBlank) {
-    $('#uf').css({ boxShadow: '0 0 5px red' });
+//   const isUfBlank = !uf.length;
+//   if (isUfBlank) {
+//     $('#uf').css({ boxShadow: '0 0 5px red' });
 
-    return false;
-  }
+//     return false;
+//   }
 
-  $('#uf').css({ boxShadow: 'none' });
+//   $('#uf').css({ boxShadow: 'none' });
 
-  return true;
-}
+//   return true;
+// }
 
 $('#pallet-form').on('submit', function (e) {
   e.preventDefault();
 
-  const gipValida = validarGip();
-  const dataExpedicaoValida = validarDataExpedicao();
-  const notaFiscalValida = validarNotaFiscal();
-  const destinatarioValido = validarDestinatatrio();
-  const cidadeValida = validarCidade();
-  const ufValida = validarUf();
-  const transportadoraAgValida = validarTransportadoraAg();
-  const motoristaValido = validarMotorista();
-  const qtdPalletsExValido = validarQtdPalletsEx();
+  // const gipValida = validarGip();
+  // const dataExpedicaoValida = validardata_expedicao();
+  // const nota_fiscalValida = validarnota_fiscal();
+  // const destinatarioValido = validarDestinatatrio();
+  // const cidadeValida = validarCidade();
+  // const ufValida = validarUf();
+  // const transportadoraValida = validartransportadora();
+  // const motoristaValido = validarMotorista();
+  // const quantidade_pallets_expedidosValido = validarquantidade_pallets_expedidos();
 
 
 
-  if (gipValida && dataExpedicaoValida && notaFiscalValida && destinatarioValido && cidadeValida && ufValida && transportadoraAgValida && motoristaValido && qtdPalletsExValido) {
+  // if (gipValida && dataExpedicaoValida && nota_fiscalValida && destinatarioValido && cidadeValida && ufValida && transportadoraValida && motoristaValido && quantidade_pallets_expedidosValido) {
 
-    const apiCreateUrl = `${BASE_URL}/gip`;
+    const apiCreateUrl = `http://localhost:3200/api/gips`;
 
     const gpiData = {
       gip,
-      dataExpedicao,
-      notafiscal,
+      data_expedicao,
+      nota_fiscal,
       destinatario,
       cidade,
       uf,
-      transportadoraAg,
+      transportadora,
       motorista,
-      qtdPalletsEx,
+      quantidade_pallets_expedidos,
+      obs,
     };
 
     axios.post(apiCreateUrl, gpiData)
       .then(function (response) {
-        alert(response.data.message);
-
+        console.log(response);
       })
       .catch(function (error) {
-        alert(error.data.message);
+        // alert(error.data.message);
         console.log(error);
         
       });
-  }
+  // }
 });

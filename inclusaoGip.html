@@ -65,15 +65,15 @@
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="dataExpedicao">Data de Expedição *</label>
-                    <input type="date" class="form-control" id="dataExpedicao" name="dataExpedicao"
+                    <label for="data_expedicao">Data de Expedição *</label>
+                    <input type="date" class="form-control" id="data_expedicao" name="data_expedicao"
                         placeholder="Data Expedição">
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="notafiscal">Nota Fiscal Venda*</label>
+                    <label for="nota_fiscal">Nota Fiscal Venda*</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" id="notafiscal" name="notafiscal"
+                        <input type="number" class="form-control" id="nota_fiscal" name="nota_fiscal"
                             placeholder="Nota Fiscal" aria-describedby="inputGroupPrepend">
                     </div>
                 </div>
@@ -5794,8 +5794,8 @@
 
             <div class="form-row">
                 <div class="col-md-4 mb-3">
-                    <label for="transportadoraAg">Transportadora Agregada</label>
-                    <select class="form-control" id="transportadoraAg" name="transportadoraAg">
+                    <label for="transportadora">Transportadora Agregada</label>
+                    <select class="form-control" id="transportadora" name="transportadora">
                         <option>------ Selecione a Transpostadora ------</option>
                         <option value="3PL BRASIL LOGISTICA S.A">3PL BRASIL LOGISTICA S.A</option>
                         <option value="Shark Transportes e Logistica Eirelli">Shark Transportes e Logistica Eirelli
@@ -5810,9 +5810,9 @@
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="notafiscal">Quantidade de Pallets Expedido</label>
+                    <label for="quantidade_pallets_expedidos">Quantidade de Pallets Expedido</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" id="qtdPalletsEx" name="qtdPalletsEx"
+                        <input type="number" class="form-control" id="quantidade_pallets_expedidos" name="quantidade_pallets_expedidos"
                             placeholder="Qtd Pallets Expedido" aria-describedby="inputGroupPrepend">
                     </div>
                 </div>
@@ -5824,21 +5824,19 @@
                     <textarea type="text" class="form-control" id="obs" name="obs"></textarea>
                 </div>
             </div>
-            
-            <button id="atualizarBtn" class="btn btn-outline-secondary">Incluir GIP</button>
-            <input type='reset' class="btn btn-outline-secondary" value='Limpar campos'/>
+
+            <button class="btn btn-outline-secondary">Incluir GIP</button>
+            <input type='reset' class="btn btn-outline-secondary" value='Limpar campos' />
         </form>
     </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
-
-    <script src="js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+    <script src="js/app.js"></script>
     <script src="js/createGip.db.js"></script>
 
 </body>
