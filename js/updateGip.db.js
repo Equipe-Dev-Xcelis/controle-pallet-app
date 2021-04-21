@@ -1,243 +1,60 @@
-let gip;
-let qtdPalletsEx;
-let transportadoraAg;
-let motorista;
-let cidade;
-let uf;
-let dtRetornoVale;
-let qtdDevolucaoVale;
-let dtRetornoFisico;
-let qtdDevolucaoFisico;
-let nmrValePallet;
-let obs;
+var gip;
+var data_expedicao;
+var nota_fiscal;
+var destinatario;
+var cidade
+var uf
+var transportadora
+var motorista
+var quantidade_pallets_expedidos
+var numero_vale_pallet
+var quantidade_de_pallets_vale
+var data_retorno_vale_pallet
+var validade_vale_pallet
+var data_retorno_pallet_fisico
+var quantidade_pallets_devolvidos_fisico
+var quantidade_pallets_pendente_vale
+var quantidade_pallets_devolvidos_fisico_vale
+var obs
 
 function fetchData() {
     gip = window.location.href.split('=')[1];
-    const apiFindByIdUrl = `${BASE_URL}/gip/${gip}`;
 
-    axios.get(apiFindByIdUrl)
+    var token = localStorage.getItem('token')
+
+    var config = {
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
+    }
+
+    api.get(`/gips/${gip}`, config)
         .then(function (response) {
-            fillFields(response.data.data[0]);
+            fillFields(response.data.gip)
         })
-        .catch(function (error) {
-            console.log(error);
-        });
 }
 
 function fillFields(data) {
-    console.log(data);
-    $('#qtdPalletsEx').val(data['qtdPalletsEx'] || '');
-    $('#transportadoraAg').val(data['transportadoraAg'] || '');
-    $('#motorista').val(data['motorista'] || '');
+    // console.log(data);
+    $('#gip').val(data['gip'] || '')
+    $('#data_expedicao').val(data['data_expedicao'] || '');
+    $('#nota_fiscal').val(data['nota_fiscal'] || '');
+    $('#destinatario').val(data['destinatario'] || '');
     $('#cidade').val(data['cidade'] || '');
     $('#uf').val(data['uf']);
-    $('#dtRetornoVale').val(data['dtRetornoVale']);
-    $('#qtdDevolucaoVale').val(data['qtdDevolucaoVale']);
-    $('#dtRetornoFisico').val(data['dtRetornoFisico']);
-    $('#qtdDevolucaoFisico').val(data['qtdDevolucaoFisico']);
-    $('#nmrValePallet').val(data['nmrValePallet']);
+    $('#transportadora').val(data['transportadora']);
+    $('#motorista').val(data['motorista']);
+    $('#quantidade_pallets_expedidos').val(data['quantidade_pallets_expedidos']);
+    $('#numero_vale_pallet').val(data['numero_vale_pallet']);
+    $('#quantidade_de_pallets_vale').val(data['quantidade_de_pallets_vale']);
+    $('#data_retorno_vale_pallet').val(data['data_retorno_vale_pallet']);
+    $('#validade_vale_pallet').val(data['validade_vale_pallet']);
+    $('#data_retorno_pallet_fisico').val(data['data_retorno_pallet_fisico']);
+    $('#quantidade_pallets_devolvidos_fisico').val(data['quantidade_pallets_devolvidos_fisico']);
+    $('#quantidade_pallets_pendente_vale').val(data['quantidade_pallets_pendente_vale']);
+    $('#quantidade_pallets_devolvidos_fisico_vale').val(data['quantidade_pallets_devolvidos_fisico_vale']);
     $('#obs').val(data['obs']);
 }
-
-function validarQtdPalletsEx() {
-    qtdPalletsEx = $('#qtdPalletsEx').val();
-
-    const isqtdPalletsExInvalid = !qtdPalletsEx;
-    if (isqtdPalletsExInvalid) {
-        $('#qtdPalletsEx').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-
-    $('#qtdPalletsEx').css({ boxShadow: 'none' });
-
-    return true;
-}
-
-function validarTransportadoraAg() {
-    transportadoraAg = $('#transportadoraAg').val();
-
-    const isTransportadoraAgBlank = !transportadoraAg.length;
-    if (isTransportadoraAgBlank) {
-        $('#transportadoraAg').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-
-    $('#uf').css({ boxShadow: 'none' });
-
-    return true;
-}
-
-function validarMotorista() {
-    motorista = $('#motorista').val();
-
-    const isMotoristaLengthInvalid = !motorista.length || motorista.length < 1;
-    if (isMotoristaLengthInvalid) {
-        $('#motorista').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-
-    const hasMotoristaInvalidChar = !(/^[a-zA-Z\u00C0-\u00FF ]+$/g.test(motorista));
-    if (hasMotoristaInvalidChar) {
-        $('#motorista').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-
-    $('#motorista').css({ boxShadow: 'none' });
-
-    return true;
-}
-
-function validarCidade() {
-    cidade = $('#cidade').val();
-
-    const isCidadeBlank = !cidade.length;
-    if (isCidadeBlank) {
-        $('#cidade').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-
-    $('#cidade').css({ boxShadow: 'none' });
-
-    return true;
-}
-
-function validarUf() {
-    uf = $('#uf').val();
-
-    const isUfBlank = !uf.length;
-    if (isUfBlank) {
-        $('#uf').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-
-    $('#uf').css({ boxShadow: 'none' });
-
-    return true;
-}
-//dtRetornoVale
-    function validarDtRetornoVale() {
-    dtRetornoVale = $('#dtRetornoVale').val();
-    return true;
-  }
-
-function validarQtdDevolucaoVale() {
-    qtdDevolucaoVale = $('#qtdDevolucaoVale').val();
-
-    const isDevolucaoValeInvalid = !qtdDevolucaoVale;
-    if (isDevolucaoValeInvalid) {
-        $('#qtdDevolucaoVale').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-
-    $('#qtdDevolucaoVale').css({ boxShadow: 'none' });
-
-    return true;
-}
-
-
-function validarDtRetornoFisico(){
-  dtRetornoFisico = $('#dtRetornoFisico').val();
-  return true;
-
-}
-
-//qtdDevolucaoFisico
-function validarQtdDevolucaoFisico() {
-    qtdDevolucaoFisico = $('#qtdDevolucaoFisico').val();
-
-    const isDevolucaoFisicoInvalid = !qtdDevolucaoFisico;
-    if (isDevolucaoFisicoInvalid) {
-        $('#qtdDevolucaoFisico').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-
-    $('#qtdDevolucaoFisico').css({ boxShadow: 'none' });
-
-    return true;
-}
-
-//nmrValePallet
-function validarNmrPallet() {
-    nmrValePallet = $('#nmrValePallet').val();
-
-    const isNmrPalletInvalid = !nmrValePallet;
-    if (isNmrPalletInvalid) {
-        $('#nmrValePallet').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-
-    $('#nmrValePallet').css({ boxShadow: 'none' });
-
-    return true;
-}
-
-
-function validarObs() {
-    obs = $('#obs').val();
-
-    const isObsLengthInvalid = !obs.length || obs.length < 1;
-    if (isObsLengthInvalid) {
-        $('#obs').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-
-    $('#obs').css({ boxShadow: 'none' });
-
-    return true;
-}
-
-$('#gip-edit').on('submit', function (e) {
-    e.preventDefault();
-    
-    const qtdPalletsExValido = validarQtdPalletsEx();
-    const transportadoraAgValida = validarTransportadoraAg();
-    const motoristaValido = validarMotorista();
-    const cidadeValida = validarCidade();
-    const ufValida = validarUf();
-    const dtRetornoValeValida = validarDtRetornoVale();
-    const qtdDevolucaoValeValido = validarQtdDevolucaoVale();
-    const dtRetornoFisico = validarDtRetornoFisico();
-    const qtdDevolucaoFisicoValido = validarQtdDevolucaoFisico();
-    const nmrValePalletValido = validarNmrPallet();
-    const obsValida = validarObs();
-    
-    if (qtdPalletsExValido && transportadoraAgValida && motoristaValido && cidadeValida && ufValida && dtRetornoValeValida && qtdDevolucaoValeValido && dtRetornoFisico && qtdDevolucaoFisicoValido && nmrValePalletValido && obsValida) {
-
-        const apiUpdateUrl = `${BASE_URL}/gip/${gip}`;
-
-        const gpiData = {
-            qtdPalletsEx,
-            transportadoraAg,
-            motorista,
-            cidade,
-            uf,
-            dtRetornoVale,
-            qtdDevolucaoVale,
-            dtRetornoFisico,
-            qtdDevolucaoFisico,
-            nmrValePallet,
-            obs,
-        };
-        axios.put(apiUpdateUrl, gpiData)
-            .then(function (response) {
-                alert(response.data.message)
-            })
-            .catch(function (error) {
-                alert(error)
-                console.log(response.data.message);
-            });
-    }
-});
 
 fetchData();
 

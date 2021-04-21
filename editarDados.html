@@ -5,16 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form.css">
@@ -28,20 +22,13 @@
             <a class="nav-link text-right" href="menu.html">
                 <img class="logo" alt="logo" src="img/arpyia.png">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <button class="btn btn-outline-secondary ms-auto" onclick="signOut()">Logout</button>
         </nav>
 
-        <nav class="navbar navbar-expand-md bg-ligth navbar-black">
-            <form class="form-inline">
-                <button class="btnLogout btn btn-outline-secondary my-2 my-sm-0" onclick="signOut()">Logout</button>
-            </form>
-        </nav>
 
-        <div class="jumbotron" style="padding-top:3%; padding-bottom:3%;">
+        <div class="rounded bg-light" style="padding-top:3%; padding-bottom:3%;">
             <div class="container text-center">
-                <h2>Controle de Pallets | Atualização de dados</h2>
+                <h2>Controle de Pallets | Editar GIP</h2>
             </div>
         </div>
 
@@ -58,35 +45,112 @@
         <hr>
 
         <h5>Formulário de Controle de Pallets</h5>
-        <form id="gip-edit">
-            <div class="form-row">
+        <form id="pallet-form">
+            <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label for="qtdPallets">Digite a quantidade de Pallets</label>
-                    <input type="number" class="form-control" id="qtdPallets" name="qtdPallets"
-                        placeholder="Qtde Pallets">
+                    <label for="gip">Numero do GIP *</label>
+                    <input type="number" class="form-control" id="gip" name="gip" placeholder="GIP">
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="transportadoraAg">Transportadora Agregada</label>
-                    <select class="form-control" id="transportadoraAg" name="transportadoraAg">
-                        <option>------ Selecione a Transpostadora ------</option>
-                        <option value="3PL BRASIL LOGISTICA S.A">3PL BRASIL LOGISTICA S.A</option>
-                        <option value="Shark Transportes e Logistica Eirelli">Shark Transportes e Logistica Eirelli</option>
-                        <option value="TRANSLIMA">TRANSLIMA</option>
+                    <label for="data_expedicao">Data de Expedição *</label>
+                    <input type="date" class="form-control" id="data_expedicao" name="data_expedicao"
+                        placeholder="Data Expedição">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="nota_fiscal">Nota Fiscal Venda*</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="nota_fiscal" name="nota_fiscal"
+                            placeholder="Nota Fiscal" aria-describedby="inputGroupPrepend">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="destinatario">Destinatário *</label>
+                    <select class="form-select" name="destinatario" id="destinatario">
+                        <option> ------ Selecione o Destinatário ------ </option>
+                        <option value="am/pm comestiveis ltda">AM/PM COMESTIVEIS LTDA</option>
+                        <option value="amazon servicos de varejo do brasil">AMAZON SERVICOS DE VAREJO BRASIL</option>
+                        <option value="arcom s/a.">ARCOM S/A.</option>
+                        <option value="atacadao s.a.">ATACADAO S.A.</option>
+                        <option value="baia norte prods restaurantes ltda">BAIA NORTE PRODS RESTAURANTES LTDA</option>
+                        <option value="bigolin distrib de alimentos ltda">BIGOLIN DISTRIB DE ALIMENTOS LTDA</option>
+                        <option value="bompreco bahia s/a">BOMPRECO BAHIA S/A</option>
+                        <option value="bompreco s/a superm. do nordeste">BOMPRECO S/A SUPERM. DO NORDESTE</option>
+                        <option value="bortman & cia ltda">BORTMAN & CIA LTDA</option>
+                        <option value="cabral e sousa ltda.">CABRAL E SOUSA LTDA.</option>
+                        <option value="carrefour com. e ind. ltda">CARREFOUR COM. E IND. LTDA</option>
+                        <option value="cdlgru comercio e distribuicao de">CDLGRU COMERCIO E DISTRIBUICAO DE</option>
+                        <option value="cencosud brasil comercial ltda">CENCOSUD BRASIL COMERCIAL LTDA</option>
+                        <option value="cia brasileira de distribuicao">CIA BRASILEIRA DE DISTRIBUICAO</option>
+                        <option value="cia zaffari comercio e industria">CIA ZAFFARI COMERCIO E INDUSTRIA</option>
+                        <option value="comercial zaragoza imp e exp ltda">COMERCIAL ZARAGOZA IMP E EXP LTDA</option>
+                        <option value="coop - cooperativa de consumo">COOP - COOPERATIVA DE CONSUMO</option>
+                        <option value="copiza com de prods alim ltda">COPIZA COM DE PRODS ALIM LTDA</option>
+                        <option value="dia brasil sociedade limitada">DIA BRASIL SOCIEDADE LIMITADA</option>
+                        <option value="dica distribuidora e importadora de">DICA DISTRIBUIDORA E IMPORTADORA DE</option>
+                        <option value="dimed s/a - distr de medicamentos">DIMED S/A - DISTR DE MEDICAMENTOS</option>
+                        <option value="discra distr. comercial e repr. lt">DISCRA DISTR. COMERCIAL E REPR. LT</option>
+                        <option value="dislab go comercial farmaceutica">DISLAB GO COMERCIAL FARMACEUTICA</option>
+                        <option value="dist centro oeste de med ltda">DIST CENTRO OESTE DE MED LTDA</option>
+                        <option value="distrib de prod alim. marsil ltda">DISTRIB DE PROD ALIM. MARSIL LTDA</option>
+                        <option value="distribuidora de alimentos ponto">DISTRIBUIDORA DE ALIMENTOS PONTO</option>
+                        <option value="distribuidora de doce top tem ltd">DISTRIBUIDORA DE DOCE TOP TEM LTD</option>
+                        <option value="drogaria sao paulo s.a">DROGARIA SAO PAULO S.A</option>
+                        <option value="drogaria tododia eireli">DROGARIA TODODIA EIRELI</option>
+                        <option value="drogarias pacheco s/a">DROGARIAS PACHECO S/A</option>
+                        <option value="dufry do brasil duty free shop ltda">DUFRY DO BRASIL DUTY FREE SHOP LTDA</option>
+                        <option value="garcia atacadista ltda">GARCIA ATACADISTA LTDA</option>
+                        <option value="higa produtos alimenticios ltda.">HIGA PRODUTOS ALIMENTICIOS LTDA.</option>
+                        <option value="irmaos russi ltda">IRMAOS RUSSI LTDA</option>
+                        <option value="jaya trade center ltda epp">JAYA TRADE CENTER LTDA EPP</option>
+                        <option value="jc dist.log.exp.prod.industrial lt">JC DIST.LOG.EXP.PROD.INDUSTRIAL LT</option>
+                        <option value="kalunga com e ind grafica ltda">KALUNGA COM E IND GRAFICA LTDA</option>
+                        <option value="lojas americanas s/a">LOJAS AMERICANAS S/A</option>
+                        <option value="luiz tonin atac e superm. s.a">LUIZ TONIN ATAC E SUPERM. S.A</option>
+                        <option value="maceio distr.e import. de alim. lt">MACEIO DISTR.E IMPORT. DE ALIM. LT</option>
+                        <option value="magazine luiza s/a">MAGAZINE LUIZA S/A</option>
+                        <option value="makro atacadista s/a">MAKRO ATACADISTA S/A</option>
+                        <option value="martins & lopes ltda">MARTINS & LOPES LTDA</option>
+                        <option value="mega rio logistica distr de alim lt">MEGA RIO LOGISTICA DISTR DE ALIM LT</option>
+                        <option value="mendes e parente ltda">MENDES E PARENTE LTDA</option>
+                        <option value="multicanal atacado ltda">MULTICANAL ATACADO LTDA</option>
+                        <option value="nova amazonas ind.com.imp. alim.lt">NOVA AMAZONAS IND.COM.IMP. ALIM.LT</option>
+                        <option value="ouro azul distrib e import de">OURO AZUL DISTRIB E IMPORT DE</option>
+                        <option value="p & p distribuidora ltda">P & P DISTRIBUIDORA LTDA</option>
+                        <option value="pennacchi e cia. ltda.">PENNACCHI E CIA. LTDA.</option>
+                        <option value="peralta distrubuidora de alim. ltda">PERALTA DISTRUBUIDORA DE ALIM. LTDA</option>
+                        <option value="pet center comercio e particip s.a">PET CENTER COMERCIO E PARTICIP S.A</option>
+                        <option value="postall transporte e armaz ltda">POSTALL TRANSPORTE E ARMAZ LTDA</option>
+                        <option value="raia drogasil s/a">RAIA DROGASIL S/A</option>
+                        <option value="rede brasil distrib. e log. ltda">REDE BRASIL DISTRIB. E LOG. LTDA</option>
+                        <option value="rfg comercio transportes e servicos ltda ">RFG COMERCIO TRANSPORTES E SERVICOS
+                            LTDA </option>
+                        <option value="rio atacadao alimentos ltda">RIO ATACADAO ALIMENTOS LTDA</option>
+                        <option value="roldao auto serv com de alim ltda">ROLDAO AUTO SERV COM DE ALIM LTDA</option>
+                        <option value="savegnago-supermercados ltda">SAVEGNAGO-SUPERMERCADOS LTDA</option>
+                        <option value="sendas distribuidora s/a">SENDAS DISTRIBUIDORA S/A</option>
+                        <option value="servbem com e distr de alim. ltda">SERVBEM COM E DISTR DE ALIM. LTDA</option>
+                        <option value="sinais atacado e distribuidora ltda">SINAIS ATACADO E DISTRIBUIDORA LTDA</option>
+                        <option value="souza cruz ltda">SOUZA CRUZ LTDA</option>
+                        <option value="souza cruz s.a">SOUZA CRUZ S.A</option>
+                        <option value="tenda atacado ltda">TENDA ATACADO LTDA</option>
+                        <option value="tonga comercio de alimentos ltda">TONGA COMERCIO DE ALIMENTOS LTDA</option>
+                        <option value="travagin & travagin ltda">TRAVAGIN & TRAVAGIN LTDA</option>
+                        <option value="unimarka distribuidora s/a">UNIMARKA DISTRIBUIDORA S/A</option>
+                        <option value="wal-mart brasil ltda">WAL-MART BRASIL LTDA</option>
+                        <option value="wmb supermercados do brasil ltda">WMB SUPERMERCADOS DO BRASIL LTDA</option>
+                        <option value="wms supermercados do brasil ltda">WMS SUPERMERCADOS DO BRASIL LTDA</option>
+                        <option value="zamboni comercial ltda">ZAMBONI COMERCIAL LTDA</option>
                     </select>
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="motorista">Motorista</label>
-                    <input type="text" class="form-control" id="motorista" name="motorista"
-                        placeholder="Nome motorista">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="col-md-4 mb-3">
                     <label for="cidade">Cidade</label>
-                    <select class="form-control" id="cidade" name="cidade">
+                    <select class="form-select" id="cidade" name="cidade">
                         <option> ------ Selecione a Cidade ------ </option>
                         <option value="ABADIA DE GOIÁS">Abadia de Goiás</option>
                         <option value="ABADIA DOS DOURADOS">Abadia dos Dourados</option>
@@ -4746,7 +4810,8 @@
                         <option value="SÃO FRANCISCO">São Francisco</option>
                         <option value="SÃO FRANCISCO">São Francisco</option>
                         <option value="SÃO FRANCISCO DE ASSIS">São Francisco de Assis</option>
-                        <option value="SÃO FRANCISCO DE ASSIS DO PIAUÍ">São Francisco de Assis do Piauí<option>
+                        <option value="SÃO FRANCISCO DE ASSIS DO PIAUÍ">São Francisco de Assis do Piauí
+                        <option>
                         <option value="SÃO FRANCISCO DE GOIÁS">São Francisco de Goiás</option>
                         <option value="SÃO FRANCISCO DE ITABAPOANA">São Francisco de Itabapoana</option>
                         <option value="SÃO FRANCISCO DE PAULA">São Francisco de Paula</option>
@@ -5609,7 +5674,7 @@
                         <option value="VIEIRAS">Vieiras</option>
                         <option value="VIEIRÓPOLIS">Vieirópolis</option>
                         <option value="VIGIA">Vigia</option>
-                        <option value="VILA BELA DA SANTÍSSIMA TRINDADE">Vila Bela da Santíssima Trindade<option>
+                        <option value="VILA BELA DA SANTÍSSIMA TRINDADE">Vila Bela da Santíssima Trindade</option>
                         <option value="VILA BOA">Vila Boa</option>
                         <option value="VILA FLOR">Vila Flor</option>
                         <option value="VILA FLORES">Vila Flores</option>
@@ -5682,7 +5747,7 @@
 
                 <div class="col-md-4 mb-3">
                     <label for="uf">UF</label>
-                    <select class="form-control" id="uf" name="uf">
+                    <select class="form-select" id="uf" name="uf">
                         <option>------ Selecione o UF ------</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
@@ -5712,42 +5777,95 @@
                         <option value="TO">TO</option>
                     </select>
                 </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="transportadora">Transportadora Agregada</label>
+                    <select class="form-select" id="transportadora" name="transportadora">
+                        <option>------ Selecione a Transpostadora ------</option>
+                        <option value="3PL BRASIL LOGISTICA S.A">3PL BRASIL LOGISTICA S.A</option>
+                        <option value="Shark Transportes e Logistica Eirelli">Shark Transportes e Logistica Eirelli
+                        </option>
+                        <option value="TRANSLIMA">TRANSLIMA</option>
+                    </select>
+                </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="dtRetornoVale">Data retorno Vale Pallet</label>
-                    <input type="date" class="form-control" id="dtRetornoVale" name="dtRetornoVale"
-                        placeholder="Data retorno Vale Pallet">
+                    <label for="motorista">Motorista *</label>
+                    <input type="text" class="form-control" id="motorista" name="motorista" placeholder="Motorista">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="quantidade_pallets_expedidos">Quantidade de Pallets Expedido</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="quantidade_pallets_expedidos"
+                            name="quantidade_pallets_expedidos" placeholder="Qtd Pallets Expedido"
+                            aria-describedby="inputGroupPrepend">
+                    </div>
                 </div>
             </div>
 
-            <div class="form-row">
+            <section class="row">
                 <div class="col-md-4 mb-3">
-                    <label for="qtdDevolucaoVale">Quantidade de Pallets retornados</label>
-                    <input type="number" class="form-control" id="qtdDevolucaoVale" name="qtdDevolucaoVale"
-                        placeholder="Qnt Devolução Vale Pallet">
+                    <label for="numero_vale_pallet">Numero do Vale Pallet</label>
+                    <input type="number" class="form-control" id="numero_vale_pallet" name="numero_vale_pallet"
+                        placeholder="Digite o numero do Vale">
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="dtRetornoFisico">Data retorno fisico</label>
-                    <input type="date" class="form-control" id="dtRetornoFisico" name="dtRetornoFisico"
-                        placeholder="Data retorno fisico">
+                    <label for="quantidade_de_pallets_vale">Quantidade de Pallets no Vale</label>
+                    <input type="number" class="form-control" id="quantidade_de_pallets_vale"
+                        name="quantidade_de_pallets_vale" placeholder="Digite a quantidade de Pallets">
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="qtdDevolucaoFisico">Quantidade de Pallets devolvidos fisicamente</label>
-                    <input type="number" class="form-control" id="qtdDevolucaoFisico" name="qtdDevolucaoFisico"
-                        placeholder="Qnt Devolvido Fisico">
+                    <label for="data_retorno_vale_pallet">Data de Retorno do Vale Pallet</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control" id="data_retorno_vale_pallet"
+                            name="data_retorno_vale_pallet" aria-describedby="inputGroupPrepend">
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="validade_vale_pallet">Data de validade do Vale Pallet</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control" id="validade_vale_pallet" name="validade_vale_pallet"
+                            aria-describedby="inputGroupPrepend">
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <label for="data_retorno_pallet_fisico">Data retorno fisico do Pallet</label>
+                    <input type="date" class="form-control" id="data_retorno_pallet_fisico"
+                        name="data_retorno_pallet_fisico">
+                </div>
+
+                <div class="col-lg-4">
+                    <label for="quantidade_pallet_devolvidos_fisico">Quantidade de Pallets Devolvidos
+                        Fisicamente</label>
+                    <input type="number" class="form-control" id="quantidade_pallet_devolvidos_fisico"
+                        name="quantidade_pallet_devolvidos_fisico" placeholder="Quantidade Retornado Fisico">
+                </div>
+            </section>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="data_retorno_pallet_coletado">Data retorno do Pallet Coletado (Vale)</label>
+                    <input type="date" class="form-control" id="data_retorno_pallet_coletado"
+                        name="data_retorno_pallet_coletado">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="quantidade_pallets_devolvidos_fisico_vale">Quantidade Palllets Devolvidos
+                        Fisicamente (Vale)</label>
+                    <input type="number" class="form-control" id="quantidade_pallets_devolvidos_fisico_vale"
+                        name="quantidade_pallets_devolvidos_fisico_vale" placeholder="Quantidade Pallet Vale">
                 </div>
             </div>
 
-            <div class="form-row">
-                <div class="col-md-4 mb-3">
-                    <label for="nmrValePallet">Nº Vale Palet</label>
-                    <input type="number" class="form-control" id="nmrValePallet" name="nmrValePallet"
-                        placeholder="Nº Vale Pallet">
-                </div>
-
-                <div class="col-md-4 mb-3">
+            <div class="row">
+                <div class="col-md-5 mb-3">
                     <label for="obs">Observaçao</label>
                     <textarea type="text" class="form-control" id="obs" name="obs"></textarea>
                 </div>
@@ -5756,21 +5874,12 @@
             <button id="atualizarBtn" class="btn btn-outline-secondary">Atualizar dados</button>
             <input type='reset' class="btn btn-outline-secondary" value='Limpar todos os campos' />
         </form>
-
-
-    </div>
     </div>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
-
-
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
-
-    <script src="js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+    <script src="js/app.js"></script>
     <script src="js/updateGip.db.js"></script>
 
 </body>
