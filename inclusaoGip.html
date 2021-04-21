@@ -20,24 +20,15 @@
             <a class="nav-link text-right" href="menu.html">
                 <img class="logo" alt="logo" src="img/arpyia.png">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
+            <button class="btn btn-outline-secondary ms-auto" onclick="signOut()">Logout</button>
         </nav>
 
-        <nav class="navbar navbar-expand-md bg-ligth navbar-black">
-            <form class="form-inline">
-                <button class="btnLogout btn btn-outline-secondary my-2 my-sm-0" onclick="signOut()">Logout</button>
-            </form>
-        </nav>
 
-        <div class="jumbotron" style="padding-top:3%; padding-bottom:3%;">
+        <div class="rounded bg-light" style="padding-top:3%; padding-bottom:3%;">
             <div class="container text-center">
                 <h2>Controle de Pallets | Inclusão de GIP</h2>
             </div>
         </div>
-
 
         <h3><b>Orientações</h3></b>
         <hr>
@@ -55,8 +46,9 @@
         </div>
 
         <h5>Formulário de Controle de Pallets</h5>
+
         <form id="pallet-form">
-            <div class="form-row">
+            <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="gip">Numero do GIP *</label>
                     <input type="number" class="form-control" id="gip" name="gip" placeholder="GIP">
@@ -77,10 +69,10 @@
                 </div>
             </div>
 
-            <div class="form-row">
+            <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="destinatario">Destinatário *</label>
-                    <select class="form-control" name="destinatario" id="destinatario">
+                    <select class="form-select" name="destinatario" id="destinatario">
                         <option> ------ Selecione o Destinatário ------ </option>
                         <option value="am/pm comestiveis ltda">AM/PM COMESTIVEIS LTDA</option>
                         <option value="amazon servicos de varejo do brasil">AMAZON SERVICOS DE VAREJO BRASIL</option>
@@ -160,7 +152,7 @@
 
                 <div class="col-md-4 mb-3">
                     <label for="cidade">Cidade</label>
-                    <select class="form-control" id="cidade" name="cidade">
+                    <select class="form-select" id="cidade" name="cidade">
                         <option> ------ Selecione a Cidade ------ </option>
                         <option value="ABADIA DE GOIÁS">Abadia de Goiás</option>
                         <option value="ABADIA DOS DOURADOS">Abadia dos Dourados</option>
@@ -5757,7 +5749,7 @@
 
                 <div class="col-md-4 mb-3">
                     <label for="uf">UF</label>
-                    <select class="form-control" id="uf" name="uf">
+                    <select class="form-select" id="uf" name="uf">
                         <option>------ Selecione o UF ------</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
@@ -5789,10 +5781,10 @@
                 </div>
             </div>
 
-            <div class="form-row">
+            <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="transportadora">Transportadora Agregada</label>
-                    <select class="form-control" id="transportadora" name="transportadora">
+                    <select class="form-select" id="transportadora" name="transportadora">
                         <option>------ Selecione a Transpostadora ------</option>
                         <option value="3PL BRASIL LOGISTICA S.A">3PL BRASIL LOGISTICA S.A</option>
                         <option value="Shark Transportes e Logistica Eirelli">Shark Transportes e Logistica Eirelli
@@ -5816,7 +5808,7 @@
                 </div>
             </div>
 
-            <div class="form-row">
+            <div class="row">
                 <div class="col-md-5 mb-3">
                     <label for="obs">Observaçao</label>
                     <textarea type="text" class="form-control" id="obs" name="obs"></textarea>

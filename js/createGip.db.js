@@ -142,6 +142,30 @@ function validarUf() {
   return true;
 }
 
+function validarObs() {
+  obs = $('#obs').val();
+
+  const isobsLengthInvalid = !obs.length || obs.length < 1;
+  if (isobsLengthInvalid) {
+    $('#obs').css({ boxShadow: '0 0 5px red' });
+
+    return false;
+  }
+
+  const hasobsInvalidChar = !(/^[a-zA-Z\u00C0-\u00FF ]+$/g.test(obs));
+  if (hasobsInvalidChar) {
+    $('#obs').css({ boxShadow: '0 0 5px red' });
+
+    return false;
+  }
+
+  $('#obs').css({ boxShadow: 'none' });
+
+  return true;
+}
+
+
+
 $('#pallet-form').on('submit', (e) => {
   e.preventDefault();
 
@@ -154,9 +178,10 @@ $('#pallet-form').on('submit', (e) => {
   const transportadoraValida = validartransportadora();
   const motoristaValido = validarMotorista();
   const quantidade_pallets_expedidosValido = validarquantidade_pallets_expedidos();
+  const obsValido = validarObs()
 
 
-  if (gipValida && dataExpedicaoValida && nota_fiscalValida && destinatarioValido && cidadeValida && ufValida && transportadoraValida && motoristaValido && quantidade_pallets_expedidosValido) {
+  if (gipValida && dataExpedicaoValida && nota_fiscalValida && destinatarioValido && cidadeValida && ufValida && transportadoraValida && motoristaValido && quantidade_pallets_expedidosValido && obsValido) {
 
     var gipData = {
       gip,

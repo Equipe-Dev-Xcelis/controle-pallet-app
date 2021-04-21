@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form.css">
@@ -26,20 +20,13 @@
             <a class="nav-link text-right" href="menu.html">
                 <img class="logo" alt="logo" src="img/arpyia.png">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <button class="btn btn-outline-secondary ms-auto" onclick="signOut()">Logout</button>
         </nav>
 
-        <nav class="navbar navbar-expand-md bg-ligth navbar-black">
-            <form class="form-inline">
-                <button class="btnLogout btn btn-outline-secondary my-2 my-sm-0" onclick="signOut()">Logout</button>
-            </form>
-        </nav>
 
-        <div class="jumbotron" style="padding-top:3%; padding-bottom:3%;">
+        <div class="rounded bg-light" style="padding-top:3%; padding-bottom:3%;">
             <div class="container text-center">
-                <h2>Controle de Pallets | Atualização Valle Pallet</h2>
+                <h2>Controle de Pallets | Inclusão de GIP</h2>
             </div>
         </div>
 
@@ -53,7 +40,7 @@
 
         <hr>
 
-        <form id="teste">
+        <form id="search-gip">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="gip">Digite o GIP</label>
@@ -64,16 +51,19 @@
             <input type='reset' class="btn btn-outline-secondary" value='Limpar campo' />
             <hr>
 
+            <div id="alerta">
 
-            <table class="table table-hover table-striped tabela">
-                <thead>
+            </div>
+
+            <table class="rounded table table-hover table-striped tabela">
+                <thead class="bg-primary bg-gradient">
                     <tr>
                         <td>GIP</td>
                         <td>Quantidade de Pallets Expedidos</td>
                         <td>Destinatário</td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="gip-list">
                 </tbody>
             </table>
         </form>
@@ -99,16 +89,14 @@
                     <label for="data_retorno_vale_pallet">Data de Retorno do Vale Pallet</label>
                     <div class="input-group">
                         <input type="date" class="form-control" id="data_retorno_vale_pallet"
-                            name="data_retorno_vale_pallet" placeholder="Coloque a data de retorno"
-                            aria-describedby="inputGroupPrepend">
+                            name="data_retorno_vale_pallet" aria-describedby="inputGroupPrepend">
                     </div>
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="data_retorno_vale_pallet">Data de Retorno do Vale Pallet</label>
+                    <label for="validade_vale_pallet">Data de validade do Vale Pallet</label>
                     <div class="input-group">
-                        <input type="date" class="form-control" id="data_retorno_vale_pallet"
-                            name="data_retorno_vale_pallet" placeholder="Coloque a data de retorno"
+                        <input type="date" class="form-control" id="validade_vale_pallet" name="validade_vale_pallet"
                             aria-describedby="inputGroupPrepend">
                     </div>
                 </div>
@@ -131,6 +119,5 @@
 
     <script src="js/app.js"></script>
     <script src="js/listaDados2.js"></script>
-    <script src="js/authentication.js"></script>
 
 </body>
