@@ -180,11 +180,21 @@ $('#pallet-form').on('submit', (e) => {
     }
 
     api.post('/gips', gipData, config)
-      .then(response => {
-        alert(response)
+      .then(function (response) {
+        $('#alerta').append(`
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            ${response.data.message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        `)
       })
-      .catch(error => {
-        console.log(error);
+      .catch(function (error) {
+        $('#alerta').append(`
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            ${error.response.data.message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        `)
       })
   }
 })
