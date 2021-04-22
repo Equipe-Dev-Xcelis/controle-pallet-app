@@ -1,8 +1,4 @@
 var gip;
-// var quantidade_pallets_expedidos;
-// var data_expedicao
-// var data_retorno_vale_pallet;
-// var validade_vale_pallet;
 
 function validarGip() {
     gip = parseInt($('#gip').val());
@@ -80,7 +76,7 @@ $('#gip-search').on('submit', function (e) {
 
         api.get(`/gips/${gip}`, config)
             .then(function (response) {
-                console.log(response.data.gip)
+                buildList(response.data.gip)
             })
             .catch(function (error) {
                 $('#alerta').append(`
@@ -94,6 +90,4 @@ $('#gip-search').on('submit', function (e) {
     }
 
 })
-
-
 fetchList()

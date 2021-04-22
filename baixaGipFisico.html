@@ -29,7 +29,7 @@
 
             <div class="rounded bg-light" style="padding-top:3%; padding-bottom:3%;">
                 <div class="container text-center">
-                    <h2>Controle de Pallets | Inclusão de GIP</h2>
+                    <h2>Controle de Pallets | Baixa de GIP Fisico</h2>
                 </div>
             </div>
 
@@ -46,32 +46,32 @@
 
             <h5>Retorno Pallet Fisico</h5>
 
-            <section class="search-gip">
+            <div id="alerta">
+
+            </div>
+
+            <form id="search-gip">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <label for="gip">Numero do GIP *</label>
+                    <div class="col-md-4 mb-3">
+                        <label for="gip">Digite o GIP</label>
                         <input type="number" class="form-control" id="gip" name="gip" placeholder="GIP">
-                        <button class="btn btn-outline-secondary my-2">Buscar GIP</button>
-                        <input type='reset' class="btn btn-outline-secondary" value='Limpar campo' />
                     </div>
 
-                    <div class="col-lg-4">
-                        <label for="quantidade_pallets_expedidos">Quantadade de Pallets Expedidos</label>
+                    <div class="col-md-4 mb-3">
+                        <label for="quantidade_pallets_expedidos">Quantidade de Pallets Expedidos</label>
                         <input type="number" class="form-control" id="quantidade_pallets_expedidos"
-                            name="quantidade_pallets_expedidos">
-                    </div>
-                    <div class="col-lg-4">
-                        <label for="saldo_pendente">Saldo Pendente</label>
-                        <input type="number" class="form-control" id="saldo_pendente" name="saldo_pendente">
+                            name="quantidade_pallets_expedidos" placeholder="Pallets Expedidos">
                     </div>
                 </div>
-            </section>
 
-            <hr>
+                <button class="btn btn-outline-secondary">Buscar GIP</button>
+                <input type='reset' class="btn btn-outline-secondary" value='Limpar campo' />
+                <hr>
+            </form>
 
             <h5>Insira as datas referente ao retorno do Pallet</h5>
 
-            <section class="campo_datas col-lg-12">
+            <form id="atualizar_datas_pallet">
 
                 <div class="row">
                     <div class="col-lg-4">
@@ -86,8 +86,6 @@
                         <input type="number" class="form-control" id="quantidade_pallet_devolvidos_fisico"
                             name="quantidade_pallet_devolvidos_fisico" placeholder="Quantidade Retornado Fisico">
                     </div>
-
-
                 </div>
 
                 <div class="row">
@@ -104,10 +102,10 @@
                             name="quantidade_pallets_devolvidos_fisico_vale" placeholder="Quantidade Pallet Vale">
                     </div>
                 </div>
-                <button class="btn btn-outline-secondary">Dar baixa no GIP</button>
-                <input type='reset' class="btn btn-outline-secondary" value='Limpar campo' />
 
-            </section>
+                <button class="btn btn-outline-secondary">Buscar GIP</button>
+                <input type='reset' class="btn btn-outline-secondary" value='Limpar campo' />
+            </form>
         </div>
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
