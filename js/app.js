@@ -1,3 +1,3 @@
 var api = axios.create({
-    baseURL: 'http://localhost:3200/api',
+    baseURL: 'https://api-pallets.herokuapp.com/',
 });
