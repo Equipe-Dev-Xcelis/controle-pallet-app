@@ -32,6 +32,8 @@ function validarSenha() {
   return true
 }
 
+console.log('testando auth');
+
 $('#login-form').on('submit', function (e) {
   e.preventDefault();
 
@@ -41,22 +43,20 @@ $('#login-form').on('submit', function (e) {
 
   if (emailValido && senhaValida) {
 
-    const apiUserLogin = `http://localhost:3200/api/entrar`
-
     const userData = {
       senha,
       email
     }
 
-    axios.post(apiUserLogin, userData)
+    api.post('/entrar', userData)
       .then(function (response) {
         localStorage.setItem('token', response.data.token)
         alert(response.data.message)
         window.location.replace('menu.html')
-        
+
       })
       .catch(function (error) {
-        window.location.replace('404.html')
+        // window.location.replace('404.html')
       })
   }
 })

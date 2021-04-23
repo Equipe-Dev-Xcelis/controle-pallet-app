@@ -60,15 +60,13 @@ $('#create_account_form').on('submit', function (e) {
 
   if (nomeValido && emailValido && senhaValida) {
 
-    const apiCreateAccount = `http://localhost:3200/api/cadastrar`;
-
     const userData = {
       nome,
       senha,
       email
     };
 
-    axios.post(apiCreateAccount, userData)
+    api.post('/cadastrar', userData)
       .then(function (response) {
         localStorage.setItem('token', response.data.token)
         alert(response.data.message);
