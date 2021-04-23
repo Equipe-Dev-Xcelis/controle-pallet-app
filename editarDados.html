@@ -1,7 +1,5 @@
 <html lang="pt-br">
 
-<!-- TODO existe apenas pelos selects que vao ser reutilizados nas outras paginas -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form.css">
 
-    <title>Controle de Pallets | Atualização de dados</title>
+    <title>Controle de Pallets | VerificaÇão de dados</title>
 </head>
 
 <body>
@@ -28,7 +26,7 @@
 
         <div class="rounded bg-light" style="padding-top:3%; padding-bottom:3%;">
             <div class="container text-center">
-                <h2>Controle de Pallets | Editar GIP</h2>
+                <h2>Controle de Pallets | Dados GIP</h2>
             </div>
         </div>
 
@@ -38,108 +36,114 @@
         <ul class="lista">
             <li>Nesta página você deve preencher os campos do formulário abaixo com as devidas informações solicitadas;
             </li>
-            <li>Após todos os campos serem preenchidos, basta clicar em enviar!</li>
+            <li>Se houve mudança nos dados do GIP, por favor clique em atualizar!</li>
         </ul>
-
 
         <hr>
 
-        <h5>Formulário de Controle de Pallets</h5>
+        <h5>Dados</h5>
+
         <form id="pallet-form">
             <div class="row">
-              <div class="col-md-4 mb-3">
-                    <label for="data_expedicao">Data de Expedição *</label>
-                    <input type="date" class="form-control" id="data_expedicao" name="data_expedicao"
-                        placeholder="Data Expedição">
+                <div class="col-md-4 mb-3">
+                    <label for="data_expedicao">Data de Expedição</label>
+                    <input type="date" class="form-control" id="data_expedicao" name="data_expedicao">
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="nota_fiscal">Nota Fiscal Venda*</label>
+                    <label for="nota_fiscal">Nota Fiscal Venda</label>
                     <div class="input-group">
                         <input type="number" class="form-control" id="nota_fiscal" name="nota_fiscal"
                             placeholder="Nota Fiscal" aria-describedby="inputGroupPrepend">
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="saldo_pendente">Saldo Pendente</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="saldo_pendente" name="saldo_pendente"
+                            placeholder="Saldo" aria-describedby="inputGroupPrepend">
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label for="destinatario">Destinatário *</label>
+                    <label for="destinatario">Destinatário</label>
                     <select class="form-select" name="destinatario" id="destinatario">
                         <option> ------ Selecione o Destinatário ------ </option>
-                        <option value="am/pm comestiveis ltda">AM/PM COMESTIVEIS LTDA</option>
-                        <option value="amazon servicos de varejo do brasil">AMAZON SERVICOS DE VAREJO BRASIL</option>
-                        <option value="arcom s/a.">ARCOM S/A.</option>
-                        <option value="atacadao s.a.">ATACADAO S.A.</option>
-                        <option value="baia norte prods restaurantes ltda">BAIA NORTE PRODS RESTAURANTES LTDA</option>
-                        <option value="bigolin distrib de alimentos ltda">BIGOLIN DISTRIB DE ALIMENTOS LTDA</option>
-                        <option value="bompreco bahia s/a">BOMPRECO BAHIA S/A</option>
-                        <option value="bompreco s/a superm. do nordeste">BOMPRECO S/A SUPERM. DO NORDESTE</option>
-                        <option value="bortman & cia ltda">BORTMAN & CIA LTDA</option>
-                        <option value="cabral e sousa ltda.">CABRAL E SOUSA LTDA.</option>
-                        <option value="carrefour com. e ind. ltda">CARREFOUR COM. E IND. LTDA</option>
-                        <option value="cdlgru comercio e distribuicao de">CDLGRU COMERCIO E DISTRIBUICAO DE</option>
-                        <option value="cencosud brasil comercial ltda">CENCOSUD BRASIL COMERCIAL LTDA</option>
-                        <option value="cia brasileira de distribuicao">CIA BRASILEIRA DE DISTRIBUICAO</option>
-                        <option value="cia zaffari comercio e industria">CIA ZAFFARI COMERCIO E INDUSTRIA</option>
-                        <option value="comercial zaragoza imp e exp ltda">COMERCIAL ZARAGOZA IMP E EXP LTDA</option>
-                        <option value="coop - cooperativa de consumo">COOP - COOPERATIVA DE CONSUMO</option>
-                        <option value="copiza com de prods alim ltda">COPIZA COM DE PRODS ALIM LTDA</option>
-                        <option value="dia brasil sociedade limitada">DIA BRASIL SOCIEDADE LIMITADA</option>
-                        <option value="dica distribuidora e importadora de">DICA DISTRIBUIDORA E IMPORTADORA DE</option>
-                        <option value="dimed s/a - distr de medicamentos">DIMED S/A - DISTR DE MEDICAMENTOS</option>
-                        <option value="discra distr. comercial e repr. lt">DISCRA DISTR. COMERCIAL E REPR. LT</option>
-                        <option value="dislab go comercial farmaceutica">DISLAB GO COMERCIAL FARMACEUTICA</option>
-                        <option value="dist centro oeste de med ltda">DIST CENTRO OESTE DE MED LTDA</option>
-                        <option value="distrib de prod alim. marsil ltda">DISTRIB DE PROD ALIM. MARSIL LTDA</option>
-                        <option value="distribuidora de alimentos ponto">DISTRIBUIDORA DE ALIMENTOS PONTO</option>
-                        <option value="distribuidora de doce top tem ltd">DISTRIBUIDORA DE DOCE TOP TEM LTD</option>
-                        <option value="drogaria sao paulo s.a">DROGARIA SAO PAULO S.A</option>
-                        <option value="drogaria tododia eireli">DROGARIA TODODIA EIRELI</option>
-                        <option value="drogarias pacheco s/a">DROGARIAS PACHECO S/A</option>
-                        <option value="dufry do brasil duty free shop ltda">DUFRY DO BRASIL DUTY FREE SHOP LTDA</option>
-                        <option value="garcia atacadista ltda">GARCIA ATACADISTA LTDA</option>
-                        <option value="higa produtos alimenticios ltda.">HIGA PRODUTOS ALIMENTICIOS LTDA.</option>
-                        <option value="irmaos russi ltda">IRMAOS RUSSI LTDA</option>
-                        <option value="jaya trade center ltda epp">JAYA TRADE CENTER LTDA EPP</option>
-                        <option value="jc dist.log.exp.prod.industrial lt">JC DIST.LOG.EXP.PROD.INDUSTRIAL LT</option>
-                        <option value="kalunga com e ind grafica ltda">KALUNGA COM E IND GRAFICA LTDA</option>
-                        <option value="lojas americanas s/a">LOJAS AMERICANAS S/A</option>
-                        <option value="luiz tonin atac e superm. s.a">LUIZ TONIN ATAC E SUPERM. S.A</option>
-                        <option value="maceio distr.e import. de alim. lt">MACEIO DISTR.E IMPORT. DE ALIM. LT</option>
-                        <option value="magazine luiza s/a">MAGAZINE LUIZA S/A</option>
-                        <option value="makro atacadista s/a">MAKRO ATACADISTA S/A</option>
-                        <option value="martins & lopes ltda">MARTINS & LOPES LTDA</option>
-                        <option value="mega rio logistica distr de alim lt">MEGA RIO LOGISTICA DISTR DE ALIM LT</option>
-                        <option value="mendes e parente ltda">MENDES E PARENTE LTDA</option>
-                        <option value="multicanal atacado ltda">MULTICANAL ATACADO LTDA</option>
-                        <option value="nova amazonas ind.com.imp. alim.lt">NOVA AMAZONAS IND.COM.IMP. ALIM.LT</option>
-                        <option value="ouro azul distrib e import de">OURO AZUL DISTRIB E IMPORT DE</option>
-                        <option value="p & p distribuidora ltda">P & P DISTRIBUIDORA LTDA</option>
-                        <option value="pennacchi e cia. ltda.">PENNACCHI E CIA. LTDA.</option>
-                        <option value="peralta distrubuidora de alim. ltda">PERALTA DISTRUBUIDORA DE ALIM. LTDA</option>
-                        <option value="pet center comercio e particip s.a">PET CENTER COMERCIO E PARTICIP S.A</option>
-                        <option value="postall transporte e armaz ltda">POSTALL TRANSPORTE E ARMAZ LTDA</option>
-                        <option value="raia drogasil s/a">RAIA DROGASIL S/A</option>
-                        <option value="rede brasil distrib. e log. ltda">REDE BRASIL DISTRIB. E LOG. LTDA</option>
-                        <option value="rfg comercio transportes e servicos ltda ">RFG COMERCIO TRANSPORTES E SERVICOS
+                        <option value="AM/PM COMESTIVEIS LTDA">AM/PM COMESTIVEIS LTDA</option>
+                        <option value="AMAZON SERVICOS DE VAREJO DO BRASIL">AMAZON SERVICOS DE VAREJO DO BRASIL</option>
+                        <option value="ARCOM S/A.">ARCOM S/A.</option>
+                        <option value="ATACADAO S.A.">ATACADAO S.A.</option>
+                        <option value="BAIA NORTE PRODS RESTAURANTES LTDA">BAIA NORTE PRODS RESTAURANTES LTDA</option>
+                        <option value="BIGOLIN DISTRIB DE ALIMENTOS LTDA">BIGOLIN DISTRIB DE ALIMENTOS LTDA</option>
+                        <option value="BOMPRECO BAHIA S/A">BOMPRECO BAHIA S/A</option>
+                        <option value="BOMPRECO S/A SUPERM. DO NORDESTE">BOMPRECO S/A SUPERM. DO NORDESTE</option>
+                        <option value="BORTMAN & CIA LTDA">BORTMAN & CIA LTDA</option>
+                        <option value="CABRAL E SOUSA LTDA.">CABRAL E SOUSA LTDA.</option>
+                        <option value="CARREFOUR COM. E IND. LTDA">CARREFOUR COM. E IND. LTDA</option>
+                        <option value="CDLGRU COMERCIO E DISTRIBUICAO DE">CDLGRU COMERCIO E DISTRIBUICAO DE</option>
+                        <option value="CIA BRASILEIRA DE DISTRIBUICAO">CIA BRASILEIRA DE DISTRIBUICAO</option>
+                        <option value="CIA ZAFFARI COMERCIO E INDUSTRIA">CIA ZAFFARI COMERCIO E INDUSTRIA</option>
+                        <option value="COMERCIAL ZARAGOZA IMP E EXP LTDA">COMERCIAL ZARAGOZA IMP E EXP LTDA</option>
+                        <option value="COOP - COOPERATIVA DE CONSUMO">COOP - COOPERATIVA DE CONSUMO</option>
+                        <option value="COPIZA COM DE PRODS ALIM LTDA">COPIZA COM DE PRODS ALIM LTDA</option>
+                        <option value="DIA BRASIL SOCIEDADE LIMITADA">DIA BRASIL SOCIEDADE LIMITADA</option>
+                        <option value="DICA DISTRIBUIDORA E IMPORTADORA DE">DICA DISTRIBUIDORA E IMPORTADORA DE</option>
+                        <option value="DIMED S/A - DISTR DE MEDICAMENTOS">DIMED S/A - DISTR DE MEDICAMENTOS</option>
+                        <option value="DISCRA DISTR. COMERCIAL E REPR. LT">DISCRA DISTR. COMERCIAL E REPR. LT</option>
+                        <option value="DISLAB COMERCIAL FARMACEUTICA LTDA">DISLAB COMERCIAL FARMACEUTICA LTDA</option>
+                        <option value="DISLAB GO COMERCIAL FARMACEUTICA">DISLAB GO COMERCIAL FARMACEUTICA</option>
+                        <option value="DIST CENTRO OESTE DE MED LTDA">DIST CENTRO OESTE DE MED LTDA</option>
+                        <option value="DISTRIB DE PROD ALIM. MARSIL LTDA">DISTRIB DE PROD ALIM. MARSIL LTDA</option>
+                        <option value="DISTRIBUIDORA DE ALIMENTOS PONTO">DISTRIBUIDORA DE ALIMENTOS PONTO</option>
+                        <option value="DISTRIBUIDORA DE DOCE TOP TEM LTD">DISTRIBUIDORA DE DOCE TOP TEM LTD</option>
+                        <option value="DROGARIA SAO PAULO S.A">DROGARIA SAO PAULO S.A</option>
+                        <option value="DROGARIA TODODIA EIRELI">DROGARIA TODODIA EIRELI</option>
+                        <option value="DROGARIAS PACHECO S/A">DROGARIAS PACHECO S/A</option>
+                        <option value="DUFRY DO BRASIL DUTY FREE SHOP LTDA">DUFRY DO BRASIL DUTY FREE SHOP LTDA</option>
+                        <option value="GARCIA ATACADISTA LTDA">GARCIA ATACADISTA LTDA</option>
+                        <option value="HIGA PRODUTOS ALIMENTICIOS LTDA.">HIGA PRODUTOS ALIMENTICIOS LTDA.</option>
+                        <option value="IRMAOS RUSSI LTDA">IRMAOS RUSSI LTDA</option>
+                        <option value="JAYA TRADE CENTER LTDA EPP">JAYA TRADE CENTER LTDA EPP</option>
+                        <option value="JC DIST.LOG.EXP.PROD.INDUSTRIAL LT">JC DIST.LOG.EXP.PROD.INDUSTRIAL LT</option>
+                        <option value="KALUNGA COM E IND GRAFICA LTDA">KALUNGA COM E IND GRAFICA LTDA</option>
+                        <option value="LOJAS AMERICANAS S/A">LOJAS AMERICANAS S/A</option>
+                        <option value="LUIZ TONIN ATAC E SUPERM. S.A">LUIZ TONIN ATAC E SUPERM. S.A</option>
+                        <option value="MACEIO DISTR.E IMPORT. DE ALIM. LT">MACEIO DISTR.E IMPORT. DE ALIM. LT</option>
+                        <option value="MAGAZINE LUIZA S/A">MAGAZINE LUIZA S/A</option>
+                        <option value="MAKRO ATACADISTA S/A">MAKRO ATACADISTA S/A</option>
+                        <option value="MARTINS & LOPES LTDA">MARTINS & LOPES LTDA</option>
+                        <option value="MEGA RIO LOGISTICA DISTR DE ALIM LT">MEGA RIO LOGISTICA DISTR DE ALIM LT</option>
+                        <option value="MENDES E PARENTE LTDA">MENDES E PARENTE LTDA</option>
+                        <option value="MULTICANAL ATACADO LTDA">MULTICANAL ATACADO LTDA</option>
+                        <option value="NOVA AMAZONAS IND.COM.IMP. ALIM.LT">NOVA AMAZONAS IND.COM.IMP. ALIM.LT</option>
+                        <option value="OURO AZUL DISTRIB E IMPORT DE">OURO AZUL DISTRIB E IMPORT DE</option>
+                        <option value="P & P DISTRIBUIDORA LTDA">P & P DISTRIBUIDORA LTDA</option>
+                        <option value="PENNACCHI E CIA. LTDA.">PENNACCHI E CIA. LTDA.</option>
+                        <option value="PERALTA DISTRUBUIDORA DE ALIM. LTDA">PERALTA DISTRUBUIDORA DE ALIM. LTDA</option>
+                        <option value="PET CENTER COMERCIO E PARTICIP S.A">PET CENTER COMERCIO E PARTICIP S.A</option>
+                        <option value="POSTALL TRANSPORTE E ARMAZ LTDA">POSTALL TRANSPORTE E ARMAZ LTDA</option>
+                        <option value="RAIA DROGASIL S/A">RAIA DROGASIL S/A</option>
+                        <option value="REDE BRASIL DISTRIB. E LOG. LTDA">REDE BRASIL DISTRIB. E LOG. LTDA</option>
+                        <option value="RFG COMERCIO TRANSPORTES E SERVICOS LTDA ">RFG COMERCIO TRANSPORTES E SERVICOS
                             LTDA </option>
-                        <option value="rio atacadao alimentos ltda">RIO ATACADAO ALIMENTOS LTDA</option>
-                        <option value="roldao auto serv com de alim ltda">ROLDAO AUTO SERV COM DE ALIM LTDA</option>
-                        <option value="savegnago-supermercados ltda">SAVEGNAGO-SUPERMERCADOS LTDA</option>
-                        <option value="sendas distribuidora s/a">SENDAS DISTRIBUIDORA S/A</option>
-                        <option value="servbem com e distr de alim. ltda">SERVBEM COM E DISTR DE ALIM. LTDA</option>
-                        <option value="sinais atacado e distribuidora ltda">SINAIS ATACADO E DISTRIBUIDORA LTDA</option>
-                        <option value="souza cruz ltda">SOUZA CRUZ LTDA</option>
-                        <option value="souza cruz s.a">SOUZA CRUZ S.A</option>
-                        <option value="tenda atacado ltda">TENDA ATACADO LTDA</option>
-                        <option value="tonga comercio de alimentos ltda">TONGA COMERCIO DE ALIMENTOS LTDA</option>
-                        <option value="travagin & travagin ltda">TRAVAGIN & TRAVAGIN LTDA</option>
-                        <option value="unimarka distribuidora s/a">UNIMARKA DISTRIBUIDORA S/A</option>
-                        <option value="wal-mart brasil ltda">WAL-MART BRASIL LTDA</option>
-                        <option value="wmb supermercados do brasil ltda">WMB SUPERMERCADOS DO BRASIL LTDA</option>
-                        <option value="wms supermercados do brasil ltda">WMS SUPERMERCADOS DO BRASIL LTDA</option>
-                        <option value="zamboni comercial ltda">ZAMBONI COMERCIAL LTDA</option>
+                        <option value="RIO ATACADAO ALIMENTOS LTDA">RIO ATACADAO ALIMENTOS LTDA</option>
+                        <option value="ROLDAO AUTO SERV COM DE ALIM LTDA">ROLDAO AUTO SERV COM DE ALIM LTDA</option>
+                        <option value="SAVEGNAGO-SUPERMERCADOS LTDA">SAVEGNAGO-SUPERMERCADOS LTDA</option>
+                        <option value="SENDAS DISTRIBUIDORA S/A">SENDAS DISTRIBUIDORA S/A</option>
+                        <option value="SERVBEM COM E DISTR DE ALIM. LTDA">SERVBEM COM E DISTR DE ALIM. LTDA</option>
+                        <option value="SINAIS ATACADO E DISTRIBUIDORA LTDA">SINAIS ATACADO E DISTRIBUIDORA LTDA</option>
+                        <option value="SOUZA CRUZ S.A">SOUZA CRUZ S.A</option>
+                        <option value="TENDA ATACADO LTDA">TENDA ATACADO LTDA</option>
+                        <option value="TONGA COMERCIO DE ALIMENTOS LTDA">TONGA COMERCIO DE ALIMENTOS LTDA</option>
+                        <option value="TRAVAGIN & TRAVAGIN LTDA">TRAVAGIN & TRAVAGIN LTDA</option>
+                        <option value="UNIMARKA DISTRIBUIDORA S/A">UNIMARKA DISTRIBUIDORA S/A</option>
+                        <option value="WAL-MART BRASIL LTDA">WAL-MART BRASIL LTDA</option>
+                        <option value="WMB SUPERMERCADOS DO BRASIL LTDA">WMB SUPERMERCADOS DO BRASIL LTDA</option>
+                        <option value="WMS SUPERMERCADOS DO BRASIL LTDA">WMS SUPERMERCADOS DO BRASIL LTDA</option>
+                        <option value="ZAMBONI COMERCIAL LTDA">ZAMBONI COMERCIAL LTDA</option>
                     </select>
                 </div>
 
@@ -5780,14 +5784,14 @@
                     <select class="form-select" id="transportadora" name="transportadora">
                         <option>------ Selecione a Transpostadora ------</option>
                         <option value="3PL BRASIL LOGISTICA S.A">3PL BRASIL LOGISTICA S.A</option>
-                        <option value="Shark Transportes e Logistica Eirelli">Shark Transportes e Logistica Eirelli
+                        <option value="SHARK TRANSPORTES E LOGISTICA EIRELLI">Shark Transportes e Logistica Eirelli
                         </option>
                         <option value="TRANSLIMA">TRANSLIMA</option>
                     </select>
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="motorista">Motorista *</label>
+                    <label for="motorista">Motorista</label>
                     <input type="text" class="form-control" id="motorista" name="motorista" placeholder="Motorista">
                 </div>
 
@@ -5795,7 +5799,7 @@
                     <label for="quantidade_pallets_expedidos">Quantidade de Pallets Expedido</label>
                     <div class="input-group">
                         <input type="number" class="form-control" id="quantidade_pallets_expedidos"
-                            name="quantidade_pallets_expedidos" placeholder="Qtd Pallets Expedido"
+                            name="quantidade_pallets_expedidos" placeholder="Qntd Pallets Expedido"
                             aria-describedby="inputGroupPrepend">
                     </div>
                 </div>
@@ -5846,14 +5850,14 @@
 
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label for="data_retorno_pallet_coletado">Data retorno do Pallet Coletado (Vale)</label>
+                    <label for="data_retorno_pallet_coletado">Data retorno do Pallet Coletado</label>
                     <input type="date" class="form-control" id="data_retorno_pallet_coletado"
                         name="data_retorno_pallet_coletado">
                 </div>
 
                 <div class="col-md-4 mb-3">
                     <label for="quantidade_pallets_devolvidos_fisico_vale">Quantidade Palllets Devolvidos
-                        Fisicamente (Vale)</label>
+                        Fisicamente</label>
                     <input type="number" class="form-control" id="quantidade_pallets_devolvidos_fisico_vale"
                         name="quantidade_pallets_devolvidos_fisico_vale" placeholder="Quantidade Pallet Vale">
                 </div>

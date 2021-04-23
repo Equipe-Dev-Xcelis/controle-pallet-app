@@ -12,9 +12,10 @@ var quantidade_de_pallets_vale;
 var data_retorno_vale_pallet;
 var validade_vale_pallet;
 var data_retorno_pallet_fisico;
-var quantidade_pallets_devolvidos_fisico;
-var quantidade_pallets_pendente_vale;
+var quantidade_pallet_devolvidos_fisico;
+var data_retorno_pallet_coletado;
 var quantidade_pallets_devolvidos_fisico_vale;
+var saldo_pendente;
 var obs;
 
 function fetchData() {
@@ -34,28 +35,30 @@ function fetchData() {
 }
 
 function fillFields(data) {
-    // console.log(data);
-    $('#data_expedicao').val(data['data_expedicao'] || '');
-    $('#nota_fiscal').val(data['nota_fiscal'] || '');
-    $('#destinatario').val(data['destinatario'] || '');
-    $('#cidade').val(data['cidade'] || '');
-    $('#uf').val(data['uf']);
-    $('#transportadora').val(data['transportadora']);
-    $('#motorista').val(data['motorista']);
-    $('#quantidade_pallets_expedidos').val(data['quantidade_pallets_expedidos']);
-    $('#numero_vale_pallet').val(data['numero_vale_pallet']);
-    $('#quantidade_de_pallets_vale').val(data['quantidade_de_pallets_vale']);
-    $('#data_retorno_vale_pallet').val(data['data_retorno_vale_pallet']);
-    $('#validade_vale_pallet').val(data['validade_vale_pallet']);
-    $('#data_retorno_pallet_fisico').val(data['data_retorno_pallet_fisico']);
-    $('#quantidade_pallets_devolvidos_fisico').val(data['quantidade_pallets_devolvidos_fisico']);
-    $('#quantidade_pallets_pendente_vale').val(data['quantidade_pallets_pendente_vale']);
-    $('#quantidade_pallets_devolvidos_fisico_vale').val(data['quantidade_pallets_devolvidos_fisico_vale']);
-    $('#obs').val(data['obs']);
+    $('#data_expedicao').val(data['data_expedicao'] || '')
+    $('#nota_fiscal').val(data['nota_fiscal'] || '')
+    $('#destinatario').val(data['destinatario'] || '')
+    $('#cidade').val(data['cidade'] || '')
+    $('#uf').val(data['uf'])
+    $('#transportadora').val(data['transportadora'])
+    $('#motorista').val(data['motorista'])
+    $('#quantidade_pallets_expedidos').val(data['quantidade_pallets_expedidos'])
+    $('#numero_vale_pallet').val(data['numero_vale_pallet'])
+    $('#quantidade_de_pallets_vale').val(data['quantidade_de_pallets_vale'])
+    $('#data_retorno_vale_pallet').val(data['data_retorno_vale_pallet'])
+    $('#validade_vale_pallet').val(data['validade_vale_pallet'])
+    $('#data_retorno_pallet_fisico').val(data['data_retorno_pallet_fisico'])
+    $('#quantidade_pallet_devolvidos_fisico').val(data['quantidade_pallet_devolvidos_fisico'])
+    $('#data_retorno_pallet_coletado').val(data['data_retorno_pallet_coletado'])
+    $('#quantidade_pallets_devolvidos_fisico_vale').val(data['quantidade_pallets_devolvidos_fisico_vale'])
+    $('#quantidade_pallets_pendente_vale').val(data['quantidade_pallets_pendente_vale'])
+    $('#saldo_pendente').val(data['saldo_pendente'])
+    $('#obs').val(data['obs'])
 }
 
 $('#pallet-form').on('submit', function (e) {
     var gipData = {
+        gip,
         data_expedicao,
         nota_fiscal,
         destinatario,
@@ -69,9 +72,10 @@ $('#pallet-form').on('submit', function (e) {
         data_retorno_vale_pallet,
         validade_vale_pallet,
         data_retorno_pallet_fisico,
-        quantidade_pallets_devolvidos_fisico,
-        quantidade_pallets_pendente_vale,
+        quantidade_pallet_devolvidos_fisico,
+        data_retorno_pallet_coletado,
         quantidade_pallets_devolvidos_fisico_vale,
+        saldo_pendente,
         obs,
     }
 

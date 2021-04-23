@@ -26,7 +26,17 @@ function validarGip() {
 
 function validardata_expedicao() {
   data_expedicao = $('#data_expedicao').val();
-  return true;
+
+  const isDataRetornoValePallet = !data_expedicao
+
+  if (isDataRetornoValePallet) {
+      $('#data_expedicao').css({ boxShadow: '0 0 5px red' })
+      return false
+
+  } else {
+      $('#data_expedicao').css({ boxShadow: 'none' })
+      return true
+  }
 }
 
 function validarnota_fiscal() {
@@ -56,6 +66,36 @@ function validarDestinatatrio() {
   }
 
   $('#destinatario').css({ boxShadow: 'none' });
+
+  return true;
+}
+
+function validarCidade() {
+  cidade = $('#cidade').val();
+
+  const isCidadeBlank = !cidade.length;
+  if (isCidadeBlank) {
+    $('#cidade').css({ boxShadow: '0 0 5px red' });
+
+    return false;
+  }
+
+  $('#cidade').css({ boxShadow: 'none' });
+
+  return true;
+}
+
+function validarUf() {
+  uf = $('#uf').val();
+
+  const isufBlank = !uf.length;
+  if (isufBlank) {
+    $('#uf').css({ boxShadow: '0 0 5px red' });
+
+    return false;
+  }
+
+  $('#uf').css({ boxShadow: 'none' });
 
   return true;
 }
@@ -112,54 +152,8 @@ function validarMotorista() {
   return true;
 }
 
-function validarCidade() {
-  cidade = $('#cidade').val();
-
-  const isCidadeBlank = !cidade.length;
-  if (isCidadeBlank) {
-    $('#cidade').css({ boxShadow: '0 0 5px red' });
-
-    return false;
-  }
-
-  $('#cidade').css({ boxShadow: 'none' });
-
-  return true;
-}
-
-function validarUf() {
-  uf = $('#uf').val();
-
-  const isUfBlank = !uf.length;
-  if (isUfBlank) {
-    $('#uf').css({ boxShadow: '0 0 5px red' });
-
-    return false;
-  }
-
-  $('#uf').css({ boxShadow: 'none' });
-
-  return true;
-}
-
 function validarObs() {
   obs = $('#obs').val();
-
-  const isobsLengthInvalid = !obs.length || obs.length < 1;
-  if (isobsLengthInvalid) {
-    $('#obs').css({ boxShadow: '0 0 5px red' });
-
-    return false;
-  }
-
-  const hasobsInvalidChar = !(/^[a-zA-Z\u00C0-\u00FF ]+$/g.test(obs));
-  if (hasobsInvalidChar) {
-    $('#obs').css({ boxShadow: '0 0 5px red' });
-
-    return false;
-  }
-
-  $('#obs').css({ boxShadow: 'none' });
 
   return true;
 }

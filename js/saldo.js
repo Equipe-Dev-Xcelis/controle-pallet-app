@@ -54,49 +54,39 @@ function validarQuantidadePalletsDevolvidosFisico() {
 function validarDataRetornoPalletColetado() {
     data_retorno_pallet_coletado = $('#data_retorno_pallet_coletado').val();
 
-    const isDataRetornoPalletColetado = !data_retorno_pallet_coletado
-
-    if (isDataRetornoPalletColetado) {
-        $('#data_retorno_pallet_coletado').css({ boxShadow: '0 0 5px red' })
-        return false
-
-    } else {
-        $('#data_retorno_pallet_coletado').css({ boxShadow: 'none' })
-        return true
-    }
 }
+
 
 
 function validarQuantidadePalletsDevolvidosFisicoVale() {
     quantidade_pallets_devolvidos_fisico_vale = parseInt($('#quantidade_pallets_devolvidos_fisico_vale').val());
 
-    const isQuantidadePalletsDevolvidosFisicoValeInvalid = !quantidade_pallets_devolvidos_fisico_vale;
-    if (isQuantidadePalletsDevolvidosFisicoValeInvalid) {
-        $('#quantidade_pallets_devolvidos_fisico_vale').css({ boxShadow: '0 0 5px red' });
-
-        return false;
-    }
-    $('#quantidade_pallets_devolvidos_fisico_vale').css({ boxShadow: 'none' });
-
     return true;
 }
 
+function validarSaldoPendente(){
+    saldo_pendente = parseInt($('#saldo_pendente').val());
+
+    return true
+}
+
+
+
 function fillFields(data) {
-    console.log(data);
+    
     var quantidadePalletExpedidos = parseInt(data['quantidade_pallets_expedidos'])
     var dataRetornoPalletFisico = data['data_retorno_pallet_fisico']
     var quantidadePalletDevolvidoFisco = parseInt(data['quantidade_pallet_devolvidos_fisico'])
     var quantidadePalletsDevolvidosFisicoVale = data['quantidade_pallets_devolvidos_fisico_vale'] ? parseInt(data['quantidade_pallets_devolvidos_fisico_vale']) : 0
     var dataRetornoPalletColetado = data['data_retorno_pallet_coletado']
+    var saldoPendente = parseInt(data['saldo_pendente'])
 
     $('#quantidade_pallets_expedidos').val(quantidadePalletExpedidos)
     $('#data_retorno_pallet_fisico').val(dataRetornoPalletFisico)
     $('#quantidade_pallet_devolvidos_fisico').val(quantidadePalletDevolvidoFisco)
     $('#quantidade_pallets_devolvidos_fisico_vale').val(quantidadePalletsDevolvidosFisicoVale)
     $('#data_retorno_pallet_coletado').val(dataRetornoPalletColetado)
-
-
-    $('#saldo_pendente').val(quantidadePalletExpedidos - (quantidadePalletDevolvidoFisco + quantidadePalletsDevolvidosFisicoVale))
+    $('#saldo_pendente').val(saldoPendente = quantidadePalletExpedidos - (quantidadePalletDevolvidoFisco + quantidadePalletsDevolvidosFisicoVale))
 }
 
 $('#search-gip').on('submit', function (e) {
@@ -121,7 +111,7 @@ $('#search-gip').on('submit', function (e) {
         .catch(function (error) {
             $('#alerta').append(`
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Gip nao localizado
+                        GIP não localizado
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
         `)
@@ -136,36 +126,36 @@ $('#atualizar_datas_pallet').on('submit', function (e) {
     const quantidadePalletsDevolvidosFisicoValido = validarQuantidadePalletsDevolvidosFisico()
     const dataRetornoPalletColetadoValeValido = validarDataRetornoPalletColetado()
     const quantidadePalletsDevolvidosFisicoValeValido = validarQuantidadePalletsDevolvidosFisicoVale()
+    const saldoPendenteValido = validarSaldoPendente()
 
-    // if (gipValido && dataRetornoPalletFisicoValida && quantidadePalletsDevolvidosFisicoValido) {
+    var gipData = {
+        data_retorno_pallet_fisico,
+        quantidade_pallet_devolvidos_fisico,
+        data_retorno_pallet_coletado,
+        quantidade_pallets_devolvidos_fisico_vale,
+        saldo_pendente,
+    }
 
-        var gipData = {
-            data_retorno_pallet_fisico,
-            quantidade_pallet_devolvidos_fisico,
-            data_retorno_pallet_coletado,
-            quantidade_pallets_devolvidos_fisico_vale,
+    console.log('dsadaw',gipData);
+
+    var token = localStorage.getItem('token')
+
+    var config = {
+        headers: {
+            Authorization: 'Bearer ' + token
         }
+    }
 
-        var token = localStorage.getItem('token')
-
-        var config = {
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
-        }
-
-
-        api.put(`/gips/${gip}`, gipData, config)
-            .then(function (response) {
-                $('#alerta').append(`
+    api.put(`/gips/${gip}`, gipData, config)
+        .then(function (response) {
+            $('#alerta').append(`
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             ${response.data.message}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         `)
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
-    // }
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
 })
