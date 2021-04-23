@@ -129,7 +129,7 @@ $('#atualizar_vale_pallet').on('submit', function (e) {
     const dataRetornoValePalletValido = validarDataRetornoValePallet()
     const validadeValePalletValido = validarValidadeValePallet()
 
-    if (gipValido && numeroValePalletvalido && dataRetornoValePalletValido && quantidadeDePalletsVale && validadeValePalletValido) {
+    if (gipValido && numeroValePalletvalido && quantidadeDePalletsVale && validadeValePalletValido) {
 
         var gipData = {
             numero_vale_pallet,

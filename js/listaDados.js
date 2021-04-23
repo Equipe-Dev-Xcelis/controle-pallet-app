@@ -76,7 +76,7 @@ $('#gip-search').on('submit', function (e) {
 
         api.get(`/gips/${gip}`, config)
             .then(function (response) {
-                buildList(response.data.gip)
+                buildList([response.data.gip])
             })
             .catch(function (error) {
                 $('#alerta').append(`

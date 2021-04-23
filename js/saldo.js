@@ -2,9 +2,10 @@ var gip;
 var quantidade_pallets_expedidos;
 var saldo_pendente;
 var data_retorno_pallet_fisico;
-var quantidade_pallets_devolvidos_fisico;
-var data_retorno_pallet_coletado_vale;
+var quantidade_pallet_devolvidos_fisico;
+var data_retorno_pallet_coletado;
 var quantidade_pallets_devolvidos_fisico_vale;
+var quantidade_de_pallets_vale;
 
 function validarGip() {
     gip = parseInt($('#gip').val());
@@ -37,30 +38,30 @@ function validarDataRetornoPalletFisico() {
 }
 
 function validarQuantidadePalletsDevolvidosFisico() {
-    quantidade_pallets_devolvidos_fisico = parseInt($('#quantidade_pallets_devolvidos_fisico').val());
+    quantidade_pallet_devolvidos_fisico = parseInt($('#quantidade_pallet_devolvidos_fisico').val());
 
-    const isQuantidadePalletsDevolvidosFisicoInvalid = !quantidade_pallets_devolvidos_fisico;
+    const isQuantidadePalletsDevolvidosFisicoInvalid = !quantidade_pallet_devolvidos_fisico;
     if (isQuantidadePalletsDevolvidosFisicoInvalid) {
-        $('#quantidade_pallets_devolvidos_fisico').css({ boxShadow: '0 0 5px red' });
+        $('#quantidade_pallet_devolvidos_fisico').css({ boxShadow: '0 0 5px red' });
 
         return false;
     }
-    $('#quantidade_pallets_devolvidos_fisico').css({ boxShadow: 'none' });
+    $('#quantidade_pallet_devolvidos_fisico').css({ boxShadow: 'none' });
 
     return true;
 }
 
-function validarDataRetornoPalletColetadoVale() {
-    data_retorno_pallet_coletado_vale = $('#data_retorno_pallet_coletado_vale').val();
+function validarDataRetornoPalletColetado() {
+    data_retorno_pallet_coletado = $('#data_retorno_pallet_coletado').val();
 
-    const isDataRetornoPalletColetadoVale = !data_retorno_pallet_coletado_vale
+    const isDataRetornoPalletColetado = !data_retorno_pallet_coletado
 
-    if (isDataRetornoPalletColetadoVale) {
-        $('#data_retorno_pallet_coletado_vale').css({ boxShadow: '0 0 5px red' })
+    if (isDataRetornoPalletColetado) {
+        $('#data_retorno_pallet_coletado').css({ boxShadow: '0 0 5px red' })
         return false
 
     } else {
-        $('#data_retorno_pallet_coletado_vale').css({ boxShadow: 'none' })
+        $('#data_retorno_pallet_coletado').css({ boxShadow: 'none' })
         return true
     }
 }
@@ -81,7 +82,21 @@ function validarQuantidadePalletsDevolvidosFisicoVale() {
 }
 
 function fillFields(data) {
-    $('#quantidade_pallets_expedidos').val(data['quantidade_pallets_expedidos'] || ' ');
+    console.log(data);
+    var quantidadePalletExpedidos = parseInt(data['quantidade_pallets_expedidos'])
+    var dataRetornoPalletFisico = data['data_retorno_pallet_fisico']
+    var quantidadePalletDevolvidoFisco = parseInt(data['quantidade_pallet_devolvidos_fisico'])
+    var quantidadePalletsDevolvidosFisicoVale = data['quantidade_pallets_devolvidos_fisico_vale'] ? parseInt(data['quantidade_pallets_devolvidos_fisico_vale']) : 0
+    var dataRetornoPalletColetado = data['data_retorno_pallet_coletado']
+
+    $('#quantidade_pallets_expedidos').val(quantidadePalletExpedidos)
+    $('#data_retorno_pallet_fisico').val(dataRetornoPalletFisico)
+    $('#quantidade_pallet_devolvidos_fisico').val(quantidadePalletDevolvidoFisco)
+    $('#quantidade_pallets_devolvidos_fisico_vale').val(quantidadePalletsDevolvidosFisicoVale)
+    $('#data_retorno_pallet_coletado').val(dataRetornoPalletColetado)
+
+
+    $('#saldo_pendente').val(quantidadePalletExpedidos - (quantidadePalletDevolvidoFisco + quantidadePalletsDevolvidosFisicoVale))
 }
 
 $('#search-gip').on('submit', function (e) {
@@ -119,16 +134,15 @@ $('#atualizar_datas_pallet').on('submit', function (e) {
     const gipValido = validarGip()
     const dataRetornoPalletFisicoValida = validarDataRetornoPalletFisico()
     const quantidadePalletsDevolvidosFisicoValido = validarQuantidadePalletsDevolvidosFisico()
-    const dataRetornoPalletColetadoValeValido = validarDataRetornoPalletColetadoVale()
+    const dataRetornoPalletColetadoValeValido = validarDataRetornoPalletColetado()
     const quantidadePalletsDevolvidosFisicoValeValido = validarQuantidadePalletsDevolvidosFisicoVale()
 
-
-    if (gipValido && dataRetornoPalletFisicoValida && quantidadePalletsDevolvidosFisicoValido && dataRetornoPalletColetadoValeValido && quantidadePalletsDevolvidosFisicoValeValido) {
+    // if (gipValido && dataRetornoPalletFisicoValida && quantidadePalletsDevolvidosFisicoValido) {
 
         var gipData = {
             data_retorno_pallet_fisico,
-            quantidade_pallets_devolvidos_fisico,
-            data_retorno_pallet_coletado_vale,
+            quantidade_pallet_devolvidos_fisico,
+            data_retorno_pallet_coletado,
             quantidade_pallets_devolvidos_fisico_vale,
         }
 
@@ -140,12 +154,18 @@ $('#atualizar_datas_pallet').on('submit', function (e) {
             }
         }
 
+
         api.put(`/gips/${gip}`, gipData, config)
             .then(function (response) {
-                console.log(response);
+                $('#alerta').append(`
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            ${response.data.message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        `)
             })
             .catch(function (error) {
-                console.log(error);
+                console.log(error)
             })
-    }
+    // }
 })
