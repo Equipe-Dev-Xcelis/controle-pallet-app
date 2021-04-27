@@ -8,7 +8,7 @@ var quantidade_pallets_devolvidos_fisico_vale;
 var quantidade_de_pallets_vale;
 
 function validarGip() {
-    gip = parseInt($('#gip').val());
+    gip = $('#gip').val();
 
     const isGipInvalid = !gip;
     if (isGipInvalid) {

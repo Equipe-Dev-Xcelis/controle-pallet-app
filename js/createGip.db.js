@@ -10,7 +10,7 @@ var quantidade_pallets_expedidos;
 var obs;
 
 function validarGip() {
-  gip = parseInt($('#gip').val());
+  gip = $('#gip').val();
 
   const isGipInvalid = !gip;
   if (isGipInvalid) {
@@ -30,12 +30,12 @@ function validardata_expedicao() {
   const isDataRetornoValePallet = !data_expedicao
 
   if (isDataRetornoValePallet) {
-      $('#data_expedicao').css({ boxShadow: '0 0 5px red' })
-      return false
+    $('#data_expedicao').css({ boxShadow: '0 0 5px red' })
+    return false
 
   } else {
-      $('#data_expedicao').css({ boxShadow: 'none' })
-      return true
+    $('#data_expedicao').css({ boxShadow: 'none' })
+    return true
   }
 }
 
@@ -159,6 +159,21 @@ function validarObs() {
 }
 
 
+$(document).ready(function () {
+  $('#transportadora').select2();
+});
+
+$(document).ready(function () {
+  $('#destinatario').select2();
+});
+
+$(document).ready(function () {
+  $('#cidade').select2();
+});
+
+$(document).ready(function () {
+  $('#uf').select2();
+});
 
 $('#pallet-form').on('submit', (e) => {
   e.preventDefault();

@@ -8,7 +8,7 @@ var validade_vale_pallet;
 
 
 function validarGip() {
-    gip = parseInt($('#gip').val());
+    gip =  $('#gip').val();
 
     const isGipInvalid = !gip;
     if (isGipInvalid) {

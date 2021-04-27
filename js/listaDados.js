@@ -1,7 +1,7 @@
 var gip;
 
 function validarGip() {
-    gip = parseInt($('#gip').val());
+    gip = $('#gip').val();
 
     const isGipInvalid = !gip;
     if (isGipInvalid) {
@@ -90,4 +90,5 @@ $('#gip-search').on('submit', function (e) {
     }
 
 })
+
 fetchList()
