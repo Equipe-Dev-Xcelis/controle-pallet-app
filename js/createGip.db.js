@@ -158,7 +158,6 @@ function validarObs() {
   return true;
 }
 
-
 $(document).ready(function () {
   $('#transportadora').select2();
 });
