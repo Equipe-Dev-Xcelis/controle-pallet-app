@@ -1,22 +1,4 @@
 var gip;
-var data_expedicao;
-var nota_fiscal;
-var destinatario;
-var cidade;
-var uf;
-var transportadora;
-var motorista;
-var quantidade_pallets_expedidos;
-var numero_vale_pallet;
-var quantidade_de_pallets_vale;
-var data_retorno_vale_pallet;
-var validade_vale_pallet;
-var data_retorno_pallet_fisico;
-var quantidade_pallet_devolvidos_fisico;
-var data_retorno_pallet_coletado;
-var quantidade_pallets_devolvidos_fisico_vale;
-var saldo_pendente;
-var obs;
 
 function fetchData() {
     gip = window.location.href.split('=')[1];
@@ -57,8 +39,28 @@ function fillFields(data) {
 }
 
 $('#pallet-form').on('submit', function (e) {
+    e.preventDefault()
+
+    var data_expedicao = $('#data_expedicao').val()
+    var nota_fiscal = $('#nota_fiscal').val()
+    var destinatario = $('#destinatario').val()
+    var cidade = $('#cidade').val()
+    var uf = $('#uf').val()
+    var transportadora = $('#transportadora').val()
+    var motorista = $('#motorista').val()
+    var quantidade_pallets_expedidos = $('#quantidade_pallets_expedidos').val()
+    var numero_vale_pallet = $('#numero_vale_pallet').val()
+    var quantidade_de_pallets_vale = $('#quantidade_de_pallets_vale').val()
+    var data_retorno_vale_pallet = $('#data_retorno_vale_pallet').val()
+    var validade_vale_pallet = $('#validade_vale_pallet').val()
+    var data_retorno_pallet_fisico = $('#data_retorno_pallet_fisico').val()
+    var quantidade_pallet_devolvidos_fisico = $('#quantidade_pallet_devolvidos_fisico').val()
+    var data_retorno_pallet_coletado = $('#data_retorno_pallet_coletado').val()
+    var quantidade_pallets_devolvidos_fisico_vale = $('#quantidade_pallets_devolvidos_fisico_vale').val()
+    var saldo_pendente = $('#saldo_pendente').val()
+    var obs = $('#obs').val()
+
     var gipData = {
-        gip,
         data_expedicao,
         nota_fiscal,
         destinatario,
@@ -99,7 +101,6 @@ $('#pallet-form').on('submit', function (e) {
         .catch(function (error) {
             console.log(error);
         })
-
 })
 
 fetchData();
