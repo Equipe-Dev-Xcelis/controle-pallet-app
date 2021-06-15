@@ -1,21 +1,20 @@
-.btnLogout{
+.btnLogout {
     margin-left: 1000px;
 }
 
-.textoInc{
+.textoInc {
     text-align: center;
 }
 
-.btnSignin{
+.btnSignin {
     margin-left: 650px;
 }
 
-.btnConta{
+.btnConta {
     margin-left: 710px;
 }
 
-
-.tabela{
+.tabela {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
@@ -34,8 +33,7 @@ thead {
     background-color: red;
     border: 0;
     border-radius: 6px;
-  }
-
+}
 
 .edit {
     display: inline-block;
@@ -48,10 +46,10 @@ thead {
     border-radius: 6px;
 }
 
-.campo_pesquisa{
+.campo_pesquisa {
     height: 120px;
 }
 
-.campo_datas{
+.campo_datas {
     height: 280px;
 }

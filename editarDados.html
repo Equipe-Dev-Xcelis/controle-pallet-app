@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/pdfmake.min.js" integrity="sha512-q+jWnBtVH327w/3nlp2Th9Dtjmlfj3Mb4tXCGbYjYWUqtFyIhl1Ul8GXoMkzbWvdIRVlS0P1pyteYUzxArKYOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/vfs_fonts.js" integrity="sha512-cktKDgjEiIkPVHYbn8bh/FEyYxmt4JDJJjOCu5/FQAkW4bc911XtKYValiyzBiJigjVEvrIAyQFEbRJZyDA1wQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form.css">
 
@@ -20,7 +19,6 @@
             <a class="nav-link text-right" href="menu.html">
                 <img class="logo" alt="logo" src="img/arpyia.png">
             </a>
-            <!-- <button class="btn btn-outline-secondary ms-auto" onclick="signOut()">Logout</button> -->
         </nav>
 
 
@@ -31,50 +29,48 @@
         </div>
 
         <h3><b>Orientações</h3></b>
-        <hr>
+            <hr>
 
-        <ul class="lista">
-            <li>Nesta página você deve preencher os campos do formulário abaixo com as devidas informações solicitadas;
-            </li>
-            <li>Se houve mudança nos dados do GIP, por favor clique em atualizar!</li>
-        </ul>
+            <ul class="lista">
+                <li>Nesta página você deve preencher os campos do formulário abaixo com as devidas informações solicitadas;
+                </li>
+                <li>Se houve mudança nos dados do GIP, por favor clique em atualizar!</li>
+            </ul>
 
-        <hr>
+            <hr>
 
-        <div id="alerta">
+            <div id="alerta">
 
-        </div>
-
-        <h5>Dados</h5>
-
-        <form id="pallet-form">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="data_expedicao">Data de Expedição</label>
-                    <input type="date" class="form-control" id="data_expedicao" name="data_expedicao">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="nota_fiscal">Nota Fiscal Venda</label>
-                    <div class="input-group">
-                        <input type="number" class="form-control" id="nota_fiscal" name="nota_fiscal"
-                            placeholder="Nota Fiscal" aria-describedby="inputGroupPrepend">
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="saldo_pendente">Saldo Pendente</label>
-                    <div class="input-group">
-                        <input type="number" class="form-control" id="saldo_pendente" name="saldo_pendente"
-                            placeholder="Saldo" aria-describedby="inputGroupPrepend">
-                    </div>
-                </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="destinatario">Destinatário</label>
-                    <select class="form-select" name="destinatario" id="destinatario">
+            <h5>Dados</h5>
+
+            <form id="pallet-form">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="data_expedicao">Data de Expedição</label>
+                        <input type="date" class="form-control" id="data_expedicao" name="data_expedicao">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="nota_fiscal">Nota Fiscal Venda</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="nota_fiscal" name="nota_fiscal" placeholder="Nota Fiscal" aria-describedby="inputGroupPrepend">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="saldo_pendente">Saldo Pendente</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="saldo_pendente" name="saldo_pendente" placeholder="Saldo" aria-describedby="inputGroupPrepend">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="destinatario">Destinatário</label>
+                        <select class="form-select" name="destinatario" id="destinatario">
                         <option> ------ Selecione o Destinatário ------ </option>
                         <option value="AM/PM COMESTIVEIS LTDA">AM/PM COMESTIVEIS LTDA</option>
                         <option value="AMAZON SERVICOS DE VAREJO DO BRASIL">AMAZON SERVICOS DE VAREJO DO BRASIL</option>
@@ -155,11 +151,11 @@
                         <option value="WMS SUPERMERCADOS DO BRASIL LTDA">WMS SUPERMERCADOS DO BRASIL LTDA</option>
                         <option value="ZAMBONI COMERCIAL LTDA">ZAMBONI COMERCIAL LTDA</option>
                     </select>
-                </div>
+                    </div>
 
-                <div class="col-md-4 mb-3">
-                    <label for="cidade">Cidade</label>
-                    <select class="form-select" id="cidade" name="cidade">
+                    <div class="col-md-4 mb-3">
+                        <label for="cidade">Cidade</label>
+                        <select class="form-select" id="cidade" name="cidade">
                         <option> ------ Selecione a Cidade ------ </option>
                         <option value="ABADIA DE GOIÁS">Abadia de Goiás</option>
                         <option value="ABADIA DOS DOURADOS">Abadia dos Dourados</option>
@@ -5752,11 +5748,11 @@
                         <option value="ZÉ DOCA">Zé Doca</option>
                         <option value="ZORTÉA">Zortéa</option>
                     </select>
-                </div>
+                    </div>
 
-                <div class="col-md-4 mb-3">
-                    <label for="uf">UF</label>
-                    <select class="form-select" id="uf" name="uf">
+                    <div class="col-md-4 mb-3">
+                        <label for="uf">UF</label>
+                        <select class="form-select" id="uf" name="uf">
                         <option>------ Selecione o UF ------</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
@@ -5785,13 +5781,13 @@
                         <option value="SE">SE</option>
                         <option value="TO">TO</option>
                     </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="transportadora">Transportadora Agregada</label>
-                    <select class="form-select" id="transportadora" name="transportadora">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="transportadora">Transportadora Agregada</label>
+                        <select class="form-select" id="transportadora" name="transportadora">
                         <option>------ Selecione a Transportadora ------</option>
                         <option value="3PL BRASIL LOGISTICA S.A">3PL BRASIL LOGISTICA S.A</option>
                         <option value="SHARK TRANSPORTES E LOGISTICA EIRELLI">Shark Transportes e Logistica Eirelli
@@ -5802,91 +5798,82 @@
                         <option value="COMPRA PALLET">COMPRA PALLET</option>
                         <option value="RETORNO FÁBRICA">RETORNO FÁBRICA</option>
                     </select>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="motorista">Motorista</label>
-                    <input type="text" class="form-control" id="motorista" name="motorista" placeholder="Motorista">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="quantidade_pallets_expedidos">Quantidade de Pallets Expedido</label>
-                    <div class="input-group">
-                        <input type="number" class="form-control" id="quantidade_pallets_expedidos"
-                            name="quantidade_pallets_expedidos" placeholder="Qntd Pallets Expedido"
-                            aria-describedby="inputGroupPrepend">
                     </div>
-                </div>
-            </div>
 
-            <section class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="numero_vale_pallet">Numero do Vale Pallet</label>
-                    <input type="number" class="form-control" id="numero_vale_pallet" name="numero_vale_pallet"
-                        placeholder="Digite o numero do Vale">
-                </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="motorista">Motorista</label>
+                        <input type="text" class="form-control" id="motorista" name="motorista" placeholder="Motorista">
+                    </div>
 
-                <div class="col-md-4 mb-3">
-                    <label for="quantidade_de_pallets_vale">Quantidade de Pallets no Vale</label>
-                    <input type="number" class="form-control" id="quantidade_de_pallets_vale"
-                        name="quantidade_de_pallets_vale" placeholder="Digite a quantidade de Pallets">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="data_retorno_vale_pallet">Data de Retorno do Vale Pallet</label>
-                    <div class="input-group">
-                        <input type="date" class="form-control" id="data_retorno_vale_pallet"
-                            name="data_retorno_vale_pallet" aria-describedby="inputGroupPrepend">
+                    <div class="col-md-4 mb-3">
+                        <label for="quantidade_pallets_expedidos">Quantidade de Pallets Expedido</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="quantidade_pallets_expedidos" name="quantidade_pallets_expedidos" placeholder="Qntd Pallets Expedido" aria-describedby="inputGroupPrepend">
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
-                    <label for="validade_vale_pallet">Data de validade do Vale Pallet</label>
-                    <div class="input-group">
-                        <input type="date" class="form-control" id="validade_vale_pallet" name="validade_vale_pallet"
-                            aria-describedby="inputGroupPrepend">
+                <section class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="numero_vale_pallet">Numero do Vale Pallet</label>
+                        <input type="number" class="form-control" id="numero_vale_pallet" name="numero_vale_pallet" placeholder="Digite o numero do Vale">
                     </div>
-                </div>
 
-                <div class="col-lg-4">
-                    <label for="data_retorno_pallet_fisico">Data retorno fisico do Pallet</label>
-                    <input type="date" class="form-control" id="data_retorno_pallet_fisico"
-                        name="data_retorno_pallet_fisico">
-                </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="quantidade_de_pallets_vale">Quantidade de Pallets no Vale</label>
+                        <input type="number" class="form-control" id="quantidade_de_pallets_vale" name="quantidade_de_pallets_vale" placeholder="Digite a quantidade de Pallets">
+                    </div>
 
-                <div class="col-lg-4">
-                    <label for="quantidade_pallet_devolvidos_fisico">Quantidade de Pallets Devolvidos
+                    <div class="col-md-4 mb-3">
+                        <label for="data_retorno_vale_pallet">Data de Retorno do Vale Pallet</label>
+                        <div class="input-group">
+                            <input type="date" class="form-control" id="data_retorno_vale_pallet" name="data_retorno_vale_pallet" aria-describedby="inputGroupPrepend">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="validade_vale_pallet">Data de validade do Vale Pallet</label>
+                        <div class="input-group">
+                            <input type="date" class="form-control" id="validade_vale_pallet" name="validade_vale_pallet" aria-describedby="inputGroupPrepend">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <label for="data_retorno_pallet_fisico">Data retorno fisico do Pallet</label>
+                        <input type="date" class="form-control" id="data_retorno_pallet_fisico" name="data_retorno_pallet_fisico">
+                    </div>
+
+                    <div class="col-lg-4">
+                        <label for="quantidade_pallet_devolvidos_fisico">Quantidade de Pallets Devolvidos
                         Fisicamente</label>
-                    <input type="number" class="form-control" id="quantidade_pallet_devolvidos_fisico"
-                        name="quantidade_pallet_devolvidos_fisico" placeholder="Quantidade Retornado Fisico">
-                </div>
-            </section>
+                        <input type="number" class="form-control" id="quantidade_pallet_devolvidos_fisico" name="quantidade_pallet_devolvidos_fisico" placeholder="Quantidade Retornado Fisico">
+                    </div>
+                </section>
 
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="data_retorno_pallet_coletado">Data retorno do Pallet Coletado</label>
-                    <input type="date" class="form-control" id="data_retorno_pallet_coletado"
-                        name="data_retorno_pallet_coletado">
-                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="data_retorno_pallet_coletado">Data retorno do Pallet Coletado</label>
+                        <input type="date" class="form-control" id="data_retorno_pallet_coletado" name="data_retorno_pallet_coletado">
+                    </div>
 
-                <div class="col-md-4 mb-3">
-                    <label for="quantidade_pallets_devolvidos_fisico_vale">Quantidade Palllets Devolvidos
+                    <div class="col-md-4 mb-3">
+                        <label for="quantidade_pallets_devolvidos_fisico_vale">Quantidade Palllets Devolvidos
                         Fisicamente</label>
-                    <input type="number" class="form-control" id="quantidade_pallets_devolvidos_fisico_vale"
-                        name="quantidade_pallets_devolvidos_fisico_vale" placeholder="Quantidade Pallet Vale">
+                        <input type="number" class="form-control" id="quantidade_pallets_devolvidos_fisico_vale" name="quantidade_pallets_devolvidos_fisico_vale" placeholder="Quantidade Pallet Vale">
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-5 mb-3">
-                    <label for="obs">Observaçao</label>
-                    <textarea type="text" class="form-control" id="obs" name="obs"></textarea>
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <label for="obs">Observaçao</label>
+                        <textarea type="text" class="form-control" id="obs" name="obs"></textarea>
+                    </div>
                 </div>
-            </div>
 
-            <button id="atualizarBtn" class="btn btn-outline-secondary">Atualizar dados</button>
-            <input type='reset' class="btn btn-outline-secondary" value='Limpar todos os campos' />
-        </form>
+                <button id="atualizarBtn" class="btn btn-outline-secondary">Atualizar dados</button>
+                <button id="gerar-boleto" class="btn btn-outline-secondary">Gerar boleto</button>
+                <input type='reset' class="btn btn-outline-secondary" value='Limpar todos os campos' />
+            </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -5894,6 +5881,7 @@
 
     <script src="js/app.js"></script>
     <script src="js/updateGip.db.js"></script>
+    <script src="js/pdfGen.js"></script>
     <script src="js/logout.js"></script>
 
 </body>

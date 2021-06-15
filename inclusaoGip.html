@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form.css">
@@ -37,47 +35,45 @@
         </div>
 
         <h3><b>Orientações</h3></b>
-        <hr>
+            <hr>
 
-        <ul class="lista">
-            <li>Neste formulario você deve preencher os campos abaixo com as informações solicitadas;</li>
-            <li><b>Obs</b>: Todos os campos que possuem o seguinte símbolo <b>"*"</b> devem ser preenchidos!</li>
-            <li>Após todos os campos serem preenchidos, basta clicar em <b>Incluir GIP</b>!</li>
-        </ul>
-        <hr>
+            <ul class="lista">
+                <li>Neste formulario você deve preencher os campos abaixo com as informações solicitadas;</li>
+                <li><b>Obs</b>: Todos os campos que possuem o seguinte símbolo <b>"*"</b> devem ser preenchidos!</li>
+                <li>Após todos os campos serem preenchidos, basta clicar em <b>Incluir GIP</b>!</li>
+            </ul>
+            <hr>
 
-        <div id="alerta">
+            <div id="alerta">
 
-        </div>
-
-        <h5>Formulário de Controle de Pallets</h5>
-
-        <form id="pallet-form">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="gip">Numero do GIP *</label>
-                    <input type="text" class="form-control" id="gip" name="gip" placeholder="GIP">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="data_expedicao">Data de Expedição *</label>
-                    <input type="date" class="form-control" id="data_expedicao" name="data_expedicao"
-                        placeholder="Data Expedição">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="nota_fiscal">Nota Fiscal de Venda *</label>
-                    <div class="input-group">
-                        <input type="number" class="form-control" id="nota_fiscal" name="nota_fiscal"
-                            placeholder="Nota Fiscal" aria-describedby="inputGroupPrepend">
-                    </div>
-                </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="destinatario">Destinatário *</label>
-                    <select class="form-select" name="destinatario" id="destinatario">
+            <h5>Formulário de Controle de Pallets</h5>
+
+            <form id="pallet-form">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="gip">Numero do GIP *</label>
+                        <input type="text" class="form-control" id="gip" name="gip" placeholder="GIP">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="data_expedicao">Data de Expedição *</label>
+                        <input type="date" class="form-control" id="data_expedicao" name="data_expedicao" placeholder="Data Expedição">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="nota_fiscal">Nota Fiscal de Venda *</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="nota_fiscal" name="nota_fiscal" placeholder="Nota Fiscal" aria-describedby="inputGroupPrepend">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="destinatario">Destinatário *</label>
+                        <select class="form-select" name="destinatario" id="destinatario">
                         <option> ------ Selecione o Destinatário ------ </option>
                         <option value="AM/PM COMESTIVEIS LTDA">AM/PM COMESTIVEIS LTDA</option>
                         <option value="AMAZON SERVICOS DE VAREJO DO BRASIL">AMAZON SERVICOS DE VAREJO DO BRASIL</option>
@@ -159,11 +155,11 @@
                         <option value="WMS SUPERMERCADOS DO BRASIL LTDA">WMS SUPERMERCADOS DO BRASIL LTDA</option>
                         <option value="ZAMBONI COMERCIAL LTDA">ZAMBONI COMERCIAL LTDA</option>
                     </select>
-                </div>
+                    </div>
 
-                <div class="col-md-4 mb-3">
-                    <label for="cidade">Cidade *</label>
-                    <select class="form-select" id="cidade" name="cidade">
+                    <div class="col-md-4 mb-3">
+                        <label for="cidade">Cidade *</label>
+                        <select class="form-select" id="cidade" name="cidade">
                         <option> ------ Selecione a Cidade ------ </option>
                         <option value="ABADIA DE GOIÁS">Abadia de Goiás</option>
                         <option value="ABADIA DOS DOURADOS">Abadia dos Dourados</option>
@@ -5756,11 +5752,11 @@
                         <option value="ZÉ DOCA">Zé Doca</option>
                         <option value="ZORTÉA">Zortéa</option>
                     </select>
-                </div>
+                    </div>
 
-                <div class="col-md-4 mb-3">
-                    <label for="uf">UF *</label>
-                    <select class="form-select" id="uf" name="uf">
+                    <div class="col-md-4 mb-3">
+                        <label for="uf">UF *</label>
+                        <select class="form-select" id="uf" name="uf">
                         <option>------ Selecione o UF ------</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
@@ -5789,13 +5785,13 @@
                         <option value="SE">SE</option>
                         <option value="TO">TO</option>
                     </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="transportadora">Transportadora *</label>
-                    <select class="form-select" id="transportadora" name="transportadora">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="transportadora">Transportadora *</label>
+                        <select class="form-select" id="transportadora" name="transportadora">
                         <option>------ Selecione a Transportadora ------</option>
                         <option value="3PL BRASIL LOGISTICA S.A">3PL BRASIL LOGISTICA S.A</option>
                         <option value="SHARK TRANSPORTES E LOGISTICA EIRELLI">SHARK TRANSPORTES E LOGISTICA EIRELLI
@@ -5806,33 +5802,31 @@
                         <option value="COMPRA PALLET">COMPRA PALLET</option>
                         <option value="RETORNO FÁBRICA">RETORNO FÁBRICA</option>
                     </select>
-                </div>
+                    </div>
 
-                <div class="col-md-4 mb-3">
-                    <label for="motorista">Motorista *</label>
-                    <input type="text" class="form-control" id="motorista" name="motorista" placeholder="Motorista">
-                </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="motorista">Motorista *</label>
+                        <input type="text" class="form-control" id="motorista" name="motorista" placeholder="Motorista">
+                    </div>
 
-                <div class="col-md-4 mb-3">
-                    <label for="quantidade_pallets_expedidos">Quantidade de Pallets Expedido *</label>
-                    <div class="input-group">
-                        <input type="number" class="form-control" id="quantidade_pallets_expedidos"
-                            name="quantidade_pallets_expedidos" placeholder="Qtd Pallets Expedido"
-                            aria-describedby="inputGroupPrepend">
+                    <div class="col-md-4 mb-3">
+                        <label for="quantidade_pallets_expedidos">Quantidade de Pallets Expedido *</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="quantidade_pallets_expedidos" name="quantidade_pallets_expedidos" placeholder="Qtd Pallets Expedido" aria-describedby="inputGroupPrepend">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-5 mb-3">
-                    <label for="obs">Observaçao</label>
-                    <textarea type="text" class="form-control" id="obs" name="obs"></textarea>
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <label for="obs">Observaçao</label>
+                        <textarea type="text" class="form-control" id="obs" name="obs"></textarea>
+                    </div>
                 </div>
-            </div>
 
-            <button class="btn btn-outline-secondary">Incluir GIP</button>
-            <input type='reset' class="btn btn-outline-secondary" value='Limpar campos' />
-        </form>
+                <button class="btn btn-outline-secondary">Incluir GIP</button>
+                <input type='reset' class="btn btn-outline-secondary" value='Limpar campos' />
+            </form>
     </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -5840,6 +5834,7 @@
 
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
     <script src="js/app.js"></script>

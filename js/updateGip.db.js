@@ -11,16 +11,17 @@ function fetchData() {
         }
     }
     api.get(`/gips/${gip}`, config)
-        .then(function (response) {
+        .then(function(response) {
             fillFields(response.data.gip)
         })
 }
 
 function fillFields(data) {
-    $('#data_expedicao').val(data['data_expedicao'] || '')
-    $('#nota_fiscal').val(data['nota_fiscal'] || '')
-    $('#destinatario').val(data['destinatario'] || '')
-    $('#cidade').val(data['cidade'] || '')
+    $('#gip').val(data['gip'])
+    $('#data_expedicao').val(data['data_expedicao'])
+    $('#nota_fiscal').val(data['nota_fiscal'])
+    $('#destinatario').val(data['destinatario'])
+    $('#cidade').val(data['cidade'])
     $('#uf').val(data['uf'])
     $('#transportadora').val(data['transportadora'])
     $('#motorista').val(data['motorista'])
@@ -38,7 +39,7 @@ function fillFields(data) {
     $('#obs').val(data['obs'])
 }
 
-$('#pallet-form').on('submit', function (e) {
+$('#pallet-form').on('submit', function(e) {
     e.preventDefault()
 
     var data_expedicao = $('#data_expedicao').val()
@@ -90,7 +91,7 @@ $('#pallet-form').on('submit', function (e) {
     }
 
     api.put(`/gips/${gip}`, gipData, config)
-        .then(function (response) {
+        .then(function(response) {
             $('#alerta').append(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                  ${response.data.message}
@@ -98,10 +99,9 @@ $('#pallet-form').on('submit', function (e) {
             </div>
         `)
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log(error);
         })
 })
 
 fetchData();
-
