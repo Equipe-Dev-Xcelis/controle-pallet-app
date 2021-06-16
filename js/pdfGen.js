@@ -26,7 +26,7 @@ $('#gerar-boleto').on('click', function(e) {
             italics: false,
         },
         content: [{
-                text: 'GIP - Gestao Interna de Pallets\n\n',
+                text: 'Vale Pallet\n\n',
                 style: 'header',
             },
             {
@@ -200,6 +200,4 @@ $('#gerar-boleto').on('click', function(e) {
     }
 
     pdfMake.createPdf(pdfGen).open()
-
-
 })
