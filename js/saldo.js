@@ -56,8 +56,6 @@ function validarDataRetornoPalletColetado() {
 
 }
 
-
-
 function validarQuantidadePalletsDevolvidosFisicoVale() {
     quantidade_pallets_devolvidos_fisico_vale = parseInt($('#quantidade_pallets_devolvidos_fisico_vale').val());
 
@@ -69,8 +67,6 @@ function validarSaldoPendente(){
 
     return true
 }
-
-
 
 function fillFields(data) {
     
@@ -104,9 +100,9 @@ $('#search-gip').on('submit', function (e) {
         }
     }
 
-    api.get(`/gips/${gip}`, config)
+    api.get(`/gipsnovos/${gip}`, config)
         .then(function (response) {
-            fillFields(response.data.gip);
+            fillFields(response.data.gips_novos);
         })
         .catch(function (error) {
             $('#alerta').append(`
@@ -136,8 +132,6 @@ $('#atualizar_datas_pallet').on('submit', function (e) {
         saldo_pendente,
     }
 
-    console.log('dsadaw',gipData);
-
     var token = localStorage.getItem('token')
 
     var config = {
@@ -146,7 +140,7 @@ $('#atualizar_datas_pallet').on('submit', function (e) {
         }
     }
 
-    api.put(`/gips/${gip}`, gipData, config)
+    api.put(`/gipsnovos/${gip}`, gipData, config)
         .then(function (response) {
             $('#alerta').append(`
         <div class="alert alert-success alert-dismissible fade show" role="alert">

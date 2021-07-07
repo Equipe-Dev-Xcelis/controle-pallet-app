@@ -10,9 +10,9 @@ function fetchData() {
             Authorization: 'Bearer ' + token
         }
     }
-    api.get(`/gips/${gip}`, config)
+    api.get(`/gipsnovos/${gip}`, config)
         .then(function(response) {
-            fillFields(response.data.gip)
+            fillFields(response.data.gips_novos)
         })
 }
 
@@ -90,7 +90,7 @@ $('#pallet-form').on('submit', function(e) {
         }
     }
 
-    api.put(`/gips/${gip}`, gipData, config)
+    api.put(`/gipsnovos/${gip}`, gipData, config)
         .then(function(response) {
             $('#alerta').append(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
