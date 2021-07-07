@@ -142,19 +142,19 @@ function validarObs() {
     return true;
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#transportadora').select2();
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#destinatario').select2();
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#cidade').select2();
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#uf').select2();
 });
 
@@ -196,8 +196,8 @@ $('#pallet-form').on('submit', (e) => {
 
 
 
-        api.post('/gips', gipData, config)
-            .then(function(response) {
+        api.post('/gipsnovos', gipData, config)
+            .then(function (response) {
                 $('#alerta').append(`
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             ${response.data.message}
@@ -205,7 +205,7 @@ $('#pallet-form').on('submit', (e) => {
         </div>
         `)
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 $('#alerta').append(`
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             ${error.response.data.message}

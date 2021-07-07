@@ -50,9 +50,9 @@ function fetchList() {
         }
     }
 
-    api.get('/gips', config)
+    api.get('/gipsnovos', config)
         .then(function(response) {
-            buildList(response.data.gips)
+            buildList(response.data.gips_novos)
         })
         .catch(function(error) {
             console.log(error);
@@ -74,9 +74,9 @@ $('#gip-search').on('submit', function(e) {
             }
         }
 
-        api.get(`/gips/${gip}`, config)
+        api.get(`/gipsnovos/${gip}`, config)
             .then(function(response) {
-                buildList([response.data.gip])
+                buildList([response.data.gips_novos])
             })
             .catch(function(error) {
                 $('#alerta').append(`

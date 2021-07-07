@@ -97,15 +97,15 @@ $('#search-gip').on('submit', function (e) {
             }
         }
 
-        api.get(`/gips/${gip}`, config)
+        api.get(`/gipsnovos/${gip}`, config)
             .then(function (response) {
                 $('tbody').empty()
 
                 $('#gip-list').append(`
                     <tr>
-                        <td>${response.data.gip.gip}</td>
-                        <td>${response.data.gip.quantidade_pallets_expedidos}</td>
-                        <td>${response.data.gip.destinatario}</td>
+                        <td>${response.data.gips_novos.gip}</td>
+                        <td>${response.data.gips_novos.quantidade_pallets_expedidos}</td>
+                        <td>${response.data.gips_novos.destinatario}</td>
                     </tr>
                 `)
             })
@@ -146,7 +146,7 @@ $('#atualizar_vale_pallet').on('submit', function (e) {
             }
         }
 
-        api.put(`/gips/${gip}`, gipData, config)
+        api.put(`/gipsnovos/${gip}`, gipData, config)
             .then(function (response) {
                 $('#alerta').append(`
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
