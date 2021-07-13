@@ -51,16 +51,16 @@ function fetchList() {
     }
 
     api.get('/gipsnovos', config)
-        .then(function(response) {
+        .then(function (response) {
             buildList(response.data.gips_novos)
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log(error);
         })
 }
 
 
-$('#gip-search').on('submit', function(e) {
+$('#gip-search').on('submit', function (e) {
     e.preventDefault()
 
     const gipValido = validarGip()
@@ -75,10 +75,10 @@ $('#gip-search').on('submit', function(e) {
         }
 
         api.get(`/gipsnovos/${gip}`, config)
-            .then(function(response) {
+            .then(function (response) {
                 buildList([response.data.gips_novos])
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 $('#alerta').append(`
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     Gip nao localizado
