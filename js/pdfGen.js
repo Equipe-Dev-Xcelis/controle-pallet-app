@@ -1,4 +1,4 @@
-$('#gerar-boleto').on('click', function(e) {
+$('#gerar-boleto').on('click', function (e) {
     e.preventDefault();
 
     var gip = window.location.href.split('=')[1]
@@ -19,166 +19,207 @@ $('#gerar-boleto').on('click', function(e) {
             fonSize: 12
         },
         watermark: {
-            text: 'PERFETTI VAM MELLE DO BRASIL LTDA',
+            text: 'PERFETTI VAN MELLE DO BRASIL LTDA',
             color: 'yellow',
             opacity: 0.2,
             bold: true,
             italics: false,
         },
         content: [{
-                text: 'Vale Pallet\n\n',
-                style: 'header',
+            text: 'GIP\n\n',
+            style: 'header',
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: 'CTRC: _________________________'
             },
             {
-                columns: [{
-                        width: 'auto',
-                        text: 'CTRC: _________________________'
-                    },
-                    {
-                        width: 'auto',
-                        text: `Nota Fiscal: ${nota_fiscal}`
-                    },
-                    {
-                        width: 'auto',
-                        text: 'Empresa: ________\n\n'
-                    }
-                ],
-                columnGap: 10,
+                width: 'auto',
+                text: `Nota Fiscal: ${nota_fiscal}`
             },
             {
-                text: 'Confirmo que recebi da AGV Logistica, representante de transporte da PERFETTI VAN MELLE, a quantidade de pallets mencionada abaixo. Resposabilizo-me pela devolucao dos mesmos em um prazo de 15 dias, contando a partir da data de assinatura.\n\n',
-                style: 'text',
+                width: 'auto',
+                text: 'Empresa: ________\n\n'
+            }
+            ],
+            columnGap: 10,
+        },
+        {
+            text: 'Confirmo que recebi da AGV Logistica, representante de transporte da PERFETTI VAN MELLE, a quantidade de pallets mencionada abaixo. Resposabilizo-me pela devolucao dos mesmos em um prazo de 15 dias, contando a partir da data de assinatura.\n\n',
+            style: 'footer',
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: `GIP: ${gip}`,
+                style: 'gip'
             },
             {
-                columns: [{
-                        width: 'auto',
-                        text: `GIP: ${gip}`,
-                        style: 'gip'
-                    },
-                    {
-                        width: 'auto',
-                        text: `Data Expedição: ${data_expedicao}`
-                    },
-                    {
-                        width: 'auto',
-                        text: 'Coletado em: _________________ \n\n',
-                    }
-                ],
-                columnGap: 10,
+                width: 'auto',
+                text: `Data Expedição: ${data_expedicao}`
             },
             {
-                columns: [{
-                        width: 'auto',
-                        text: 'Expedido por: _____________________________'
-                    },
-                    {
-                        width: 'auto',
-                        text: 'Assinatura Responsavel: ________________________________ \n\n'
-                    },
-                ],
-                columnGap: 10,
+                width: 'auto',
+                text: 'Coletado em: _________________ \n\n',
+            }
+            ],
+            columnGap: 10,
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: 'Expedido por: _____________________________'
             },
             {
-                columns: [{
-                    width: 'auto',
-                    text: `Cliente/Razao Social: ${destinatario}\n\n`
-                }]
+                width: 'auto',
+                text: 'Assinatura Responsavel: ________________________________ \n\n'
+            },
+            ],
+            columnGap: 10,
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: `Cliente/Razao Social: ${destinatario}\n\n`
+            }]
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: `Cidade: ${cidade}`,
             },
             {
-                columns: [{
-                        width: 'auto',
-                        text: `Cidade: ${cidade}`,
-                    },
-                    {
-                        width: 'auto',
-                        text: `Estado: ${uf}\n\n`
-                    }
-                ],
-                columnGap: 10,
+                width: 'auto',
+                text: `Estado: ${uf}\n\n`
+            }
+            ],
+            columnGap: 10,
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: `Quantidade de Pallets PBR: ${quantidade_pallets_expedidos}\n\n`
+            }]
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: `Transportadora: ${transportadora}\n\n`
+            }]
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: `Nome do Motorista: ${motorista}\n\n`
+            }]
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: 'RG/CPF Motorista: \n_____________________________________________'
             },
             {
-                columns: [{
-                    width: 'auto',
-                    text: `Quantidade de Pallets PBR: ${quantidade_pallets_expedidos}\n\n`
-                }]
+                width: 'auto',
+                text: 'Assinatura Motorista: \n_____________________________________________________\n\n'
+            }
+            ],
+            columnGap: 10,
+        },
+        {
+            text: '------------------------------------------------------------------------------------------------------------------------------',
+            style: 'division'
+        },
+        {
+            text: '\nDEVOLUCAO\n\n',
+            style: 'textReturn'
+        },
+        {
+            text: 'Preencher os campos com os dados da Devolucao do Pallet\n\n',
+            style: 'text',
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: 'Local (Devolucao): ________________'
             },
             {
-                columns: [{
-                    width: 'auto',
-                    text: `Transportadora: ${transportadora}\n\n`
-                }]
+                width: 'auto',
+                text: `Data Retorno Pallet Fisico: ${data_retorno_pallet_fisico}\n\n`
+            }
+            ],
+            columnGap: 10,
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: `Quantidade de Pallets PBR: ${quantidade_pallet_devolvidos_fisico}\n\n`
+            }]
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: 'Recebedor: ______________________________________'
             },
             {
-                columns: [{
-                    width: 'auto',
-                    text: `Nome do Motorista: ${motorista}\n\n`
-                }]
+                width: 'auto',
+                text: 'Depto: _______________________\n\n'
+            }
+            ],
+            columnGap: 10,
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: 'Assinatura Recebedor: ______________________________________'
             },
             {
-                columns: [{
-                        width: 'auto',
-                        text: 'RG/CPF Motorista: \n_____________________________________________'
-                    },
-                    {
-                        width: 'auto',
-                        text: 'Assinatura Motorista: \n_____________________________________________________\n\n'
-                    }
-                ],
-                columnGap: 10,
+                width: 'auto',
+                text: 'Unidade: _______________________________________\n\n'
+            }
+            ]
+        },
+        {
+            text: 'Ao receber esses pallets enviar os comprovantes assinados e TODOS os campos preenchidos para a Operação da PERFETTI em CAJAMAR/SP ou via e-mail para: gip.perfetti@agv.com.br\n\n',
+            style: 'footer',
+        },
+        {
+            text: '\n------------------------------------------------------------------------------------------------------------------------------',
+            style: 'division'
+        },
+        {
+            text: '\nRESPONSABILIDADE\n\n',
+            style: 'textReturn'
+        },
+        {
+            columns: [{
+                width: 'auto',
+                text: 'Destinatário Reteve os Pallets? ( )SIM NÃO( )'
             },
             {
-                text: '\nDEVOLUCAO\n\n',
-                style: 'textReturn'
+                width: 'auto',
+                text: '__________________________________________'
+            }
+            ],
+            columnGap: 10,
+        },
+        {
+            columns: [{
+
             },
             {
-                text: 'Preencher os campos com os dados da Devolucao do Pallet\n\n',
-                style: 'text',
-            },
-            {
-                columns: [{
-                        width: 'auto',
-                        text: 'Local (Devolucao): ________________'
-                    },
-                    {
-                        width: 'auto',
-                        text: `Data Retorno Pallet Fisico: ${data_retorno_pallet_fisico}\n\n`
-                    }
-                ],
-                columnGap: 10,
-            },
-            {
-                columns: [{
-                    width: 'auto',
-                    text: `Quantidade de Pallets PBR: ${quantidade_pallet_devolvidos_fisico}\n\n`
-                }]
-            },
-            {
-                columns: [{
-                        width: 'auto',
-                        text: 'Recebedor: ______________________________________'
-                    },
-                    {
-                        width: 'auto',
-                        text: 'Depto: _______________________\n\n'
-                    }
-                ],
-                columnGap: 10,
-            },
-            {
-                columns: [{
-                        width: 'auto',
-                        text: 'Assinatura Recebedor: ______________________________________'
-                    },
-                    {
-                        width: 'auto',
-                        text: 'Unidade: _______________________________________\n\n'
-                    }
-                ]
-            },
-            {
-                text: 'Ao receber esses pallets enviar os comprovantes assinados e TODOS os campos preenchidos para a Operação da PERFETTI em CAJAMAR/SP ou via e-mail para: gip.perfetti@agv.com.br\n\n',
-                style: 'text',
-            },
+                text: 'Carimbo e Assinatura do Destinatário',
+                style: 'signature'
+            }
+            ],
+            columnGap: 10
+        },
+        {
+            text: 'Ao receber esses pallets enviar os comprovantes assinados e TODOS os campos preenchidos para a Operação da PERFETTI em CAJAMAR/SP ou via e-mail para: gip.perfetti@agv.com.br',
+            style: 'footer2'
+        }
+
+
         ],
         styles: {
             header: {
@@ -195,6 +236,26 @@ $('#gerar-boleto').on('click', function(e) {
                 alignment: 'center',
                 fontSize: 15,
                 bold: true
+            },
+            division: {
+                alignment: 'center',
+                bold: true
+
+            },
+            signature: {
+                margin: [10, 0, 0, 0],
+                fontSize: 11
+            },
+            footer: {
+                fontSize: 9,
+                alignment: 'center',
+                bold: true
+            },
+            footer2: {
+                fontSize: 9,
+                alignment: 'center',
+                bold: true,
+                margin: [0, 9, 0, 0]
             }
         }
     }
