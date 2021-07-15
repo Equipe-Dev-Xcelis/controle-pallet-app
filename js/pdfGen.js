@@ -239,8 +239,7 @@ $('#gerar-boleto').on('click', function (e) {
             },
             division: {
                 alignment: 'center',
-                bold: true
-
+                bold: true,
             },
             signature: {
                 margin: [10, 0, 0, 0],
