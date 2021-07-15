@@ -10,24 +10,40 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/menu.css">
 
-    <title>Controle de Pallets | Atualização de Vale Pallet</title>
+    <title>Controle de Pallets | Relatorio de Vale Pallet</title>
 </head>
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-md bg-ligth navbar-black">
-            <a class="nav-link text-right" href="menuOldGip.html">
-                <img class="logo" alt="logo" src="img/arpyia.png">
-            </a>
-            <button class="btn btn-outline-secondary ms-auto" onclick="signOut()">Logout</button>
-        </nav>
+        <div>
+            <nav class="navbar navbar-expand-md bg-ligth navbar-black">
+                <a class="nav-link text-right" href="menu.html">
+                    <img class="logo" alt="logo" src="img/arpyia.png">
+                </a>
+            </nav>
 
-
-        <div class="rounded bg-light" style="padding-top:3%; padding-bottom:3%;">
-            <div class="container text-center">
-                <h2>Controle de Pallets (Atingo) | Relatorio</h2>
+            <div class="d-flex flex-row-reverse">
+                <button class="btn btn-outline-secondary " onclick="signOut()">Logout</button>
             </div>
+        </div>
+
+
+        <div class="mt-5 mb-4">
+            <div class="title rounded" style="padding-top:3%; padding-bottom:3%;">
+                <div class="text-center">
+                    <h2>Controle de Pallets (Antigo) | Relatório</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row-reverse bd-highlight">
+            <a href="baixaGipFisicoOld.html" class="btn btn-outline-secondary m-1">Baixa de GIP</a>
+
+            <a href="atualizacaoValePalletOld.html" class="btn btn-outline-secondary m-1">Atualizar Vale Pallet</a>
+
+            <a href="menuOldGip.html" class="btn btn-outline-secondary m-1">Menu</a>
         </div>
 
         <h3><b>Orientações</b></h3>
@@ -39,15 +55,12 @@
         </ul>
         <hr>
 
-        <div id="alerta">
-
-
-        </div>
+        <div id="alerta"></div>
 
         <h5>Formulário de Controle de Pallets</h5>
 
         <div class="row">
-            <div class="col-5 mb-3">
+            <div class="col-5 mb-1">
                 <form id="gip-search">
                     <label for="gip">Digite o GIP</label>
                     <input type="text" class="form-control" id="gip" name="gip" placeholder="GIP">

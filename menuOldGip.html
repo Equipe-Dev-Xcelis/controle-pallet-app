@@ -9,37 +9,46 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/menu.css">
     <title>Controle de Pallets</title>
 </head>
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-md bg-ligth navbar-black">
-            <a class="nav-link text-right" href="menu.html">
-                <img class="logo" alt="logo" src="img/arpyia.png">
-            </a>
-            <button class="btn btn-outline-secondary ms-auto" onclick="signOut()">Logout</button>
-        </nav>
+        <div>
+            <nav class="navbar navbar-expand-md bg-ligth navbar-black">
+                <a class="nav-link text-right" href="menu.html">
+                    <img class="logo" alt="logo" src="img/arpyia.png">
+                </a>
+            </nav>
 
-        <div class="rounded bg-light" style="padding-top:3%; padding-bottom:3%;">
-            <div class="container text-center">
-                <h2>Controle de Pallets (Atingo) | Menu</h2>
+            <div class="d-flex flex-row-reverse">
+                <button class="btn btn-outline-secondary " onclick="signOut()">Logout</button>
             </div>
         </div>
 
-        <div class="container menu">
-            <div class="dropdown my-3">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Selecione uma opção
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <a class="dropdown-item" href="listaDeGipOld.html">Relatório</a>
-                    <a class="dropdown-item" href="atualizacaoValePalletOld.html">Atualizar de Vale Pallet</a>
-                    <a class="dropdown-item" href="baixaGipFisicoOld.html">Baixa de GIP</a>
-                </ul>
+
+        <div class="mt-5">
+            <div class="title rounded" style="padding-top:3%; padding-bottom:3%;">
+                <div class="text-center">
+                    <h2>Controle de Pallets (Antigo) | Menu</h2>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="d-flex justify-content-center">
+                <div class="dropdown my-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Selecione uma opção
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <a class="dropdown-item" href="listaDeGipOld.html">Relatório</a>
+                        <a class="dropdown-item" href="atualizacaoValePalletOld.html">Atualizar Vale Pallet</a>
+                        <a class="dropdown-item" href="baixaGipFisicoOld.html">Baixa de GIP</a>
+                    </ul>
+                </div>
             </div>
         </div>
 
