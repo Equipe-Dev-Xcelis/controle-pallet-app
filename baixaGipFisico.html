@@ -10,113 +10,129 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/menu.css">
 
     <title>Controle de Pallets | Atualização de dados</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="container">
+        <div>
             <nav class="navbar navbar-expand-md bg-ligth navbar-black">
-                <a class="nav-link text-right" href="menu.html">
+                <a class="nav-link text-right" href="menuOldGip.html">
                     <img class="logo" alt="logo" src="img/arpyia.png">
                 </a>
-                <!-- <button class="btn btn-outline-secondary ms-auto" onclick="signOut()">Logout</button> -->
             </nav>
 
-
-            <div class="rounded bg-light" style="padding-top:3%; padding-bottom:3%;">
-                <div class="container text-center">
-                    <h2>Controle de Pallets | Baixa de GIP Fisico</h2>
-                </div>
+            <div class="d-flex flex-row-reverse">
+                <button class="btn btn-outline-secondary " onclick="signOut()">Logout</button>
             </div>
-
-            <h3><b>Orientações</h3></b>
-            <hr>
-
-            <ul class="lista">
-                <li>Nesta página você deve preencher os campos do formulário abaixo com as devidas informações
-                    solicitadas;
-                </li>
-            </ul>
-
-            <hr>
-
-            <h5>Retorno Pallet Fisico</h5>
-
-            <div id="alerta">
-
-            </div>
-
-            <form id="search-gip">
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <label for="gip">Digite o GIP</label>
-                        <input type="text" class="form-control" id="gip" name="gip" placeholder="GIP">
-                    </div>
-
-                    <div class="col-md-4 mb-3">
-                        <label for="quantidade_pallets_expedidos">Quantidade de Pallets Expedidos</label>
-                        <input type="number" class="form-control" id="quantidade_pallets_expedidos"
-                            name="quantidade_pallets_expedidos" placeholder="Pallets Expedidos">
-                    </div>
-                </div>
-
-                <button class="btn btn-outline-secondary">Buscar GIP</button>
-                <input type='reset' class="btn btn-outline-secondary" value='Limpar campo' />
-                <hr>
-            </form>
-
-            <h5>Insira as datas referente ao retorno do Pallet</h5>
-
-            <form id="atualizar_datas_pallet">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <label for="data_retorno_pallet_fisico">Data retorno fisico do Pallet</label>
-                        <input type="date" class="form-control" id="data_retorno_pallet_fisico"
-                            name="data_retorno_pallet_fisico">
-                    </div>
-
-                    <div class="col-lg-4">
-                        <label for="quantidade_pallet_devolvidos_fisico">Quantidade Palllets Devolvidos
-                            Fisicamente</label>
-                        <input type="number" class="form-control" id="quantidade_pallet_devolvidos_fisico"
-                            name="quantidade_pallet_devolvidos_fisico" placeholder="Quantidade Pallets Retornados Fisicamente">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4 my-5">
-                        <label for="data_retorno_pallet_coletado">Data retorno do Pallet Coletado</label>
-                        <input type="date" class="form-control" id="data_retorno_pallet_coletado"
-                            name="data_retorno_pallet_coletado">
-                    </div>
-
-                    <div class="col-lg-4 my-5">
-                        <label for="quantidade_pallets_devolvidos_fisico_vale">Quantidade Palllets Devolvidos
-                            Fisicamente</label>
-                        <input type="number" class="form-control" id="quantidade_pallets_devolvidos_fisico_vale"
-                            name="quantidade_pallets_devolvidos_fisico_vale" placeholder="Quantidade Pallet Vale">
-                    </div>
-
-                    <div class="col-lg-4 my-5">
-                        <label for="saldo_pendente">Saldo Pendente</label>
-                        <input type="number" class="form-control" id="saldo_pendente"
-                            name="saldo_pendente" placeholder="Saldo">
-                    </div>
-                </div>
-
-                <button class="btn btn-outline-secondary">Dar baixa no GIP</button>
-                <input type='reset' class="btn btn-outline-secondary" value='Limpar campo' />
-            </form>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
-        <script src="js/app.js"></script>
-        <script src="js/saldo.js"></script>
-        <script src="js/logout.js"></script>
+        <div class="mt-5 mb-4">
+            <div class="title rounded" style="padding-top:3%; padding-bottom:3%;">
+                <div class="text-center">
+                    <h2>Controle de Pallets | Baixa de GIP</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row-reverse bd-highlight">
+            <a href="atualizacaoValePalletOld.html" class="btn btn-outline-secondary m-1">Atualizar Vale Pallet</a>
+
+            <a href="listaDeGipOld.html" class="btn btn-outline-secondary m-1">Relatório</a>
+
+            <a href="menuOldGip.html" class="btn btn-outline-secondary m-1">Menu</a>
+        </div>
+
+        <h3><b>Orientações</h3></b>
+        <hr>
+
+        <ul class="lista">
+            <li>Nesta página você deve preencher os campos do formulário abaixo com as devidas informações
+                solicitadas;
+            </li>
+        </ul>
+
+        <hr>
+
+        <h5>Retorno Pallet Fisico</h5>
+
+        <div id="alerta">
+
+        </div>
+
+        <form id="search-gip">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="gip">Digite o GIP</label>
+                    <input type="text" class="form-control" id="gip" name="gip" placeholder="GIP">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="quantidade_pallets_expedidos">Quantidade de Pallets Expedidos</label>
+                    <input type="number" class="form-control" id="quantidade_pallets_expedidos"
+                        name="quantidade_pallets_expedidos" placeholder="Pallets Expedidos">
+                </div>
+            </div>
+
+            <button class="btn btn-outline-secondary">Buscar GIP</button>
+            <input type='reset' class="btn btn-outline-secondary" value='Limpar campo' />
+            <hr>
+        </form>
+
+        <h5>Insira as datas referente ao retorno do Pallet</h5>
+
+        <form id="atualizar_datas_pallet">
+            <div class="row">
+                <div class="col-lg-4">
+                    <label for="data_retorno_pallet_fisico">Data retorno fisico do Pallet</label>
+                    <input type="date" class="form-control" id="data_retorno_pallet_fisico"
+                        name="data_retorno_pallet_fisico">
+                </div>
+
+                <div class="col-lg-4">
+                    <label for="quantidade_pallet_devolvidos_fisico">Quantidade Palllets Devolvidos
+                        Fisicamente</label>
+                    <input type="number" class="form-control" id="quantidade_pallet_devolvidos_fisico"
+                        name="quantidade_pallet_devolvidos_fisico"
+                        placeholder="Quantidade Pallets Retornados Fisicamente">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 my-5">
+                    <label for="data_retorno_pallet_coletado">Data retorno do Pallet Coletado</label>
+                    <input type="date" class="form-control" id="data_retorno_pallet_coletado"
+                        name="data_retorno_pallet_coletado">
+                </div>
+
+                <div class="col-lg-4 my-5">
+                    <label for="quantidade_pallets_devolvidos_fisico_vale">Quantidade Palllets Devolvidos
+                        Fisicamente</label>
+                    <input type="number" class="form-control" id="quantidade_pallets_devolvidos_fisico_vale"
+                        name="quantidade_pallets_devolvidos_fisico_vale" placeholder="Quantidade Pallet Vale">
+                </div>
+
+                <div class="col-lg-4 my-5">
+                    <label for="saldo_pendente">Saldo Pendente</label>
+                    <input type="number" class="form-control" id="saldo_pendente" name="saldo_pendente"
+                        placeholder="Saldo">
+                </div>
+            </div>
+
+            <button class="btn btn-outline-secondary">Dar baixa no GIP</button>
+            <input type='reset' class="btn btn-outline-secondary" value='Limpar campo' />
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/saldo.js"></script>
+    <script src="js/logout.js"></script>
 
 
 </body>
