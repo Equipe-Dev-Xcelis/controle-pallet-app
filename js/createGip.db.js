@@ -178,8 +178,6 @@ $('#pallet-form').on('submit', (e) => {
             }
         }
 
-
-
         api.post('/gipsnovos', gipData, config)
             .then(function (response) {
                 $('#alerta').append(`
