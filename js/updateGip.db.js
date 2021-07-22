@@ -11,7 +11,7 @@ function fetchData() {
         }
     }
     api.get(`/gipsnovos/${gip}`, config)
-        .then(function(response) {
+        .then(function (response) {
             fillFields(response.data.gips_novos)
         })
 }
@@ -39,7 +39,7 @@ function fillFields(data) {
     $('#obs').val(data['obs'])
 }
 
-$('#pallet-form').on('submit', function(e) {
+$('#pallet-form').on('submit', function (e) {
     e.preventDefault()
 
     var data_expedicao = $('#data_expedicao').val()
@@ -91,7 +91,7 @@ $('#pallet-form').on('submit', function(e) {
     }
 
     api.put(`/gipsnovos/${gip}`, gipData, config)
-        .then(function(response) {
+        .then(function (response) {
             $('#alerta').append(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                  ${response.data.message}
@@ -99,7 +99,7 @@ $('#pallet-form').on('submit', function(e) {
             </div>
         `)
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log(error);
         })
 })

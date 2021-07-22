@@ -142,22 +142,6 @@ function validarObs() {
     return true;
 }
 
-$(document).ready(function () {
-    $('#transportadora').select2();
-});
-
-$(document).ready(function () {
-    $('#destinatario').select2();
-});
-
-$(document).ready(function () {
-    $('#cidade').select2();
-});
-
-$(document).ready(function () {
-    $('#uf').select2();
-});
-
 $('#pallet-form').on('submit', (e) => {
     e.preventDefault();
 
