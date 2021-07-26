@@ -1,14 +1,14 @@
-$('#cadastro-transportadora').on('submit', function (e) {
-    e.preventDefault();
+$('#cadastro-destinatario').on('submit', function (e) {
+    e.preventDefault()
 
-    var transportadora = $('#transportadora').val()
-    var nome = transportadora.toUpperCase()
+    var destinatario = $('#destinatario').val();
+    var nome_destinatario = destinatario.toUpperCase()
 
-    var shippingData = {
-        nome
+    var reciverData = {
+        nome_destinatario
     }
 
-    api.post('/transportadora', shippingData)
+    api.post('/destinatario', reciverData)
         .then(function (response) {
             $('#alerta').append(`
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -20,5 +20,3 @@ $('#cadastro-transportadora').on('submit', function (e) {
             console.log(error);
         })
 })
-
-
