@@ -1,4 +1,6 @@
 var gip;
+var currentUf;
+var currentCity;
 
 function fetchData() {
     gip = window.location.href.split('=')[1];
@@ -11,7 +13,7 @@ function fetchData() {
         }
     }
     api.get(`/gips/${gip}`, config)
-        .then(function(response) {
+        .then(function (response) {
             fillFields(response.data.gip)
         })
 }
@@ -21,8 +23,6 @@ function fillFields(data) {
     $('#data_expedicao').val(data['data_expedicao'])
     $('#nota_fiscal').val(data['nota_fiscal'])
     $('#destinatario').val(data['destinatario'])
-    $('#cidade').val(data['cidade'])
-    $('#uf').val(data['uf'])
     $('#transportadora').val(data['transportadora'])
     $('#motorista').val(data['motorista'])
     $('#quantidade_pallets_expedidos').val(data['quantidade_pallets_expedidos'])
@@ -37,9 +37,39 @@ function fillFields(data) {
     $('#quantidade_pallets_pendente_vale').val(data['quantidade_pallets_pendente_vale'])
     $('#saldo_pendente').val(data['saldo_pendente'])
     $('#obs').val(data['obs'])
+
+    currentUf = data.uf
+    currentCity = data.cidade
+
+    getUf(buildUfSelect)
+    getCity(buildCitySelect)
 }
 
-$('#pallet-form').on('submit', function(e) {
+function buildCitySelect(cityList) {
+    for (var i = 0; i < cityList.length; i++) {
+        var city = cityList[i].nome
+
+        if (city === currentCity) {
+            $('#cidade').append(`<option value="${city}" selected>${city}</option>`)
+        } else {
+            $('#cidade').append(`<option value="${city}">${city}</option>`)
+        }
+    }
+}
+
+function buildUfSelect(ufList) {
+    for (var i = 0; i < ufList.length; i++) {
+        var uf = ufList[i].sigla
+
+        if (uf === currentUf) {
+            $('#uf').append(`<option value="${uf}" selected>${uf}</option>`)
+        } else {
+            $('#uf').append(`<option value="${uf}">${uf}</option>`)
+        }
+    }
+}
+
+$('#pallet-form').on('submit', function (e) {
     e.preventDefault()
 
     var data_expedicao = $('#data_expedicao').val()
@@ -91,7 +121,7 @@ $('#pallet-form').on('submit', function(e) {
     }
 
     api.put(`/gips/${gip}`, gipData, config)
-        .then(function(response) {
+        .then(function (response) {
             $('#alerta').append(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                  ${response.data.message}
@@ -99,7 +129,7 @@ $('#pallet-form').on('submit', function(e) {
             </div>
         `)
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log(error);
         })
 })
