@@ -2,6 +2,8 @@ function getReciver() {
     api.get('/destinatario').then(function (response) {
         var dest = response.data.recivers
 
+        console.log(dest);
+
         initReciverSelect('#destinatario', dest)
     })
 }
