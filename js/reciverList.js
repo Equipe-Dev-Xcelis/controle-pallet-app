@@ -1,5 +1,5 @@
 function getReciver(callback) {
-    api.get('/').then(function (response) {
-        callback(response.data)
+    api.get('/destinatario').then(function (response) {
+        callback(response.data.recivers)
     })
 }

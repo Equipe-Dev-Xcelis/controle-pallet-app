@@ -1,7 +1,7 @@
 var gip;
+var currentReciver;
 var currentUf;
 var currentCity;
-var currentReciver;
 
 function fetchData() {
     gip = window.location.href.split('=')[1];
@@ -38,26 +38,26 @@ function fillFields(data) {
     $('#saldo_pendente').val(data['saldo_pendente'])
     $('#obs').val(data['obs'])
 
+    currentReciver = data.destinatario
     currentUf = data.uf
     currentCity = data.cidade
-    currentReciver = data.destinatario
 
+    getReciver(buildReciverSelect)
     getUf(buildUfSelect)
     getCity(buildCitySelect)
-    getReciver(buildReciverSelect)
-
 }
 
-function buildReciverSelect(reciverList){
+function buildReciverSelect(reciverList) {
     for(var i = 0; i < reciverList.length; i++){
         var reciver = reciverList[i].nome_destinatario
 
-        if(reciver = currentReciver) {
+        if(reciver === currentReciver){
             $('#destinatario').append(`<option value="${reciver}" selected>${reciver}</option>`)
-        } else {
+        }else{
             $('#destinatario').append(`<option value="${reciver}">${reciver}</option>`)
         }
     }
+    
 }
 
 function buildCitySelect(cityList) {
