@@ -22,7 +22,6 @@ function fillFields(data) {
     $('#gip').val(data['gip'])
     $('#data_expedicao').val(data['data_expedicao'])
     $('#nota_fiscal').val(data['nota_fiscal'])
-    $('#destinatario').val(data['destinatario'])
     $('#transportadora').val(data['transportadora'])
     $('#motorista').val(data['motorista'])
     $('#quantidade_pallets_expedidos').val(data['quantidade_pallets_expedidos'])
@@ -42,9 +41,21 @@ function fillFields(data) {
     currentUf = data.uf
     currentCity = data.cidade
 
-    
+    getReciver(buildReciverSelect)
     getUf(buildUfSelect)
     getCity(buildCitySelect)
+}
+
+function buildReciverSelect(reciverList){
+    for(var i = 0; i < reciverList.length; i++){
+        var reciver = reciverList[i].nome_destinatario
+
+        if(reciver === currentReciver){
+            $('#destinatario').append(`<option value="${reciver}" selected>${reciver}</option>`)
+        }else{
+            $('#destinatario').append(`<option value="${reciver}">${reciver}</option>`)
+        }
+    }
 }
 
 function buildCitySelect(cityList) {
