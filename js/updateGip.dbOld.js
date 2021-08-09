@@ -1,4 +1,5 @@
 var gip;
+var currentReciver;
 var currentUf;
 var currentCity;
 
@@ -12,9 +13,9 @@ function fetchData() {
             Authorization: 'Bearer ' + token
         }
     }
-    api.get(`/gipsnovos/${gip}`, config)
+    api.get(`/gips/${gip}`, config)
         .then(function (response) {
-            fillFields(response.data.gips_novos)
+            fillFields(response.data.gip)
         })
 }
 
@@ -133,7 +134,7 @@ $('#pallet-form').on('submit', function (e) {
         }
     }
 
-    api.put(`/gipsnovos/${gip}`, gipData, config)
+    api.put(`/gips/${gip}`, gipData, config)
         .then(function (response) {
             $('#alerta').append(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
