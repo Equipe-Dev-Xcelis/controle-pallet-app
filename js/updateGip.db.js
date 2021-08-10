@@ -1,4 +1,6 @@
 var gip;
+var currentReciver;
+var currentShipp;
 var currentUf;
 var currentCity;
 
@@ -22,7 +24,6 @@ function fillFields(data) {
     $('#gip').val(data['gip'])
     $('#data_expedicao').val(data['data_expedicao'])
     $('#nota_fiscal').val(data['nota_fiscal'])
-    $('#transportadora').val(data['transportadora'])
     $('#motorista').val(data['motorista'])
     $('#quantidade_pallets_expedidos').val(data['quantidade_pallets_expedidos'])
     $('#numero_vale_pallet').val(data['numero_vale_pallet'])
@@ -38,22 +39,36 @@ function fillFields(data) {
     $('#obs').val(data['obs'])
 
     currentReciver = data.destinatario
+    currentShipp = data.transportadora
     currentUf = data.uf
     currentCity = data.cidade
 
     getReciver(buildReciverSelect)
+    getShippingCom(buildShippSelect)
     getUf(buildUfSelect)
     getCity(buildCitySelect)
 }
 
-function buildReciverSelect(reciverList){
-    for(var i = 0; i < reciverList.length; i++){
+function buildReciverSelect(reciverList) {
+    for (var i = 0; i < reciverList.length; i++) {
         var reciver = reciverList[i].nome_destinatario
 
-        if(reciver === currentReciver){
+        if (reciver === currentReciver) {
             $('#destinatario').append(`<option value="${reciver}" selected>${reciver}</option>`)
-        }else{
+        } else {
             $('#destinatario').append(`<option value="${reciver}">${reciver}</option>`)
+        }
+    }
+}
+
+function buildShippSelect(shippList) {
+    for (var i = 0; i < shippList.length; i++) {
+        var shipp = shippList[i].nome
+
+        if (shipp === currentShipp) {
+            $('#transportadora').append(`<option value="${shipp}" selected>${shipp}</option>`)
+        } else {
+            $('#transportadora').append(`<option value="${shipp}">${shipp}</option>`)
         }
     }
 }
